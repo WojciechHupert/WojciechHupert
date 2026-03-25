@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wojciech Hupert — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: var(--indigo);
+      transition: background 0.4s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--yellow);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a.active { color: var(--yellow); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 9rem 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: -0.08em; right: -0.04em;
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: 42vw;
+      line-height: 1;
+      color: rgba(28, 20, 73, 0.09);
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28,20,73,0.55);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 10.5vw, 9.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: var(--indigo);
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-weight: 300;
+      color: rgba(28,20,73,0.75);
+      max-width: 540px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 3.25rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      border: 1.5px solid rgba(28,20,73,0.28);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(28,20,73,0.75);
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+
+    .tag:hover {
+      background: var(--indigo);
+      color: var(--yellow);
+      border-color: var(--indigo);
+      transform: scale(1.04);
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      padding: 0.9rem 2rem;
+      background: var(--indigo);
+      color: var(--yellow);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--indigo);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--indigo-mid); transform: translateY(-2px); }
+
+    .btn-outline {
+      padding: 0.9rem 2rem;
+      background: transparent;
+      color: var(--indigo);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(28,20,73,0.45);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: var(--indigo); color: var(--yellow); border-color: var(--indigo); }
+
+    /* SHARED */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #000000;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: stretch;
+      position: relative;
+    }
+
+    .about-text {
+      padding: 7rem 3rem;
+    }
+
+    .about .section-label { color: var(--coral); }
+    .about .section-title { color: var(--white); }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-number {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .about-photo {
+      height: 100%;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* AREAS */
+    .areas {
+      background: var(--cream);
+      padding: 7rem 3rem;
+      position: relative;
+    }
+
+    .areas .section-label { color: var(--teal); }
+    .areas .section-title { color: var(--charcoal); }
+
+    .areas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      gap: 2rem;
+    }
+
+    .areas-header-right {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 280px;
+      text-align: right;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+
+    .area-card {
+      background: var(--white);
+      padding: 2.25rem 2rem;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .area-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .area-card:hover { transform: translateY(-5px); }
+
+    .area-card.c-yellow::after { background: var(--yellow); }
+    .area-card.c-teal::after   { background: var(--teal); }
+    .area-card.c-coral::after  { background: var(--coral); }
+    .area-card.c-violet::after { background: var(--violet); }
+    .area-card.c-lime::after   { background: var(--lime); }
+    .area-card.c-indigo::after { background: var(--indigo); }
+
+    .area-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      margin-bottom: 1.75rem;
+    }
+
+    .area-dot.c-yellow { background: var(--yellow); }
+    .area-dot.c-teal   { background: var(--teal); }
+    .area-dot.c-coral  { background: var(--coral); }
+    .area-dot.c-violet { background: var(--violet); }
+    .area-dot.c-lime   { background: var(--lime); }
+    .area-dot.c-indigo { background: var(--indigo); }
+
+    .area-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--charcoal);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .area-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* AI PROJECTS */
+    .ai-projects {
+      background: var(--indigo);
+      padding: 7rem 3rem;
+      position: relative;
+    }
+
+    .ai-projects .section-label { color: var(--yellow); }
+    .ai-projects .section-title { color: var(--white); }
+
+    .ai-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+    }
+
+    .ai-intro {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      max-width: 380px;
+      line-height: 1.75;
+      text-align: right;
+    }
+
+    .projects-list { display: flex; flex-direction: column; }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      gap: 2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 0.25s;
+    }
+
+    .project-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+    .project-item:hover { padding-left: 1rem; }
+
+    .project-number {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: rgba(255,214,0,0.22);
+      line-height: 1;
+    }
+
+    .project-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1.45rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.38);
+      font-weight: 300;
+    }
+
+    .project-badge {
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(255,214,0,0.35);
+      border-radius: 100px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--yellow);
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact .section-label { color: rgba(28,20,73,0.45); }
+    .contact .section-title { color: var(--indigo); }
+
+    .contact-lead {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(28,20,73,0.7);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--indigo);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .contact-link:hover { opacity: 0.55; }
+
+    .contact-link-dot {
+      width: 8px; height: 8px;
+      background: var(--indigo);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .social-link {
+      padding: 0.5rem 1.1rem;
+      background: rgba(28,20,73,0.1);
+      color: var(--indigo);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .social-link:hover { background: rgba(28,20,73,0.2); }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .foot-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: rgba(255,214,0,0.4);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero, .about, .areas, .ai-projects, .contact { padding: 5rem 1.5rem; }
+      .about { grid-template-columns: 1fr; }
+      .about-photo { aspect-ratio: 3/2; height: auto; }
+      .areas-header { flex-direction: column; align-items: flex-start; }
+      .areas-header-right { text-align: left; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
+      .ai-header { flex-direction: column; align-items: flex-start; }
+      .ai-intro { text-align: left; }
+      .project-item { grid-template-columns: 56px 1fr; }
+      .project-badge { display: none; }
+      .contact { grid-template-columns: 1fr; gap: 3rem; }
+      footer { padding: 1.25rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .areas-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Wojciech Hupert</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#areas">Work</a></li>
+    <li><a href="#ai">AI Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-text" aria-hidden="true">WH</div>
+  <p class="hero-eyebrow">Product Designer &nbsp;·&nbsp; Berlin</p>
+  <h1 class="hero-name">Wojciech<br>Hupert</h1>
+  <p class="hero-tagline">Designing products. Exploring worlds.<br>Building at the edge of what's possible.</p>
+  <div class="hero-tags">
+    <span class="tag">Product Design</span>
+    <span class="tag">UX · UI</span>
+    <span class="tag">Graphic Design</span>
+    <span class="tag">Branding</span>
+    <span class="tag">3D Design</span>
+    <span class="tag">Unreal Engine</span>
+    <span class="tag">VFX</span>
+    <span class="tag">AI</span>
+    <span class="tag">Game Design</span>
+    <span class="tag">Video Production</span>
+    <span class="tag">Podcast Production</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#areas" class="btn-primary" style="display: none;">See My Work</a>
+    <a href="mailto:whupert@gmail.com" class="btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">20 years of design.<br>A lifetime of curiosity.</h2>
+    <p>I'm a product designer with two decades of experience spanning UX, UI, Graphic Design, and Branding. I work at the intersection of craft, technology, and creative exploration — currently based in Berlin.</p>
+    <p>Beyond product design, I build real-time environments in Unreal Engine, experiment with AI, design games, produce video, and run a podcast. I believe the best designers never stop making things.</p>
+    <div style="margin-top: 2rem;">
+      <a href="Wojciech_Hupert_CV_2026.pdf" target="_blank" class="btn-outline" style="color: var(--yellow); border-color: rgba(255,214,0,0.4); font-size: 0.75rem; padding: 0.7rem 1.5rem;">Download CV (PDF)</a>
+    </div>
+    <div class="about-stats">
+      <div>
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-number">4</div>
+        <div class="stat-label">Core Disciplines</div>
+      </div>
+      <div>
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Curiosity</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-photo">
+    <img src="/Users/cmonkx/Documents/CODE/Wojciechhupert_home/WojciechHupert2026.png" alt="Wojciech Hupert">
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+  <div class="areas-header">
+    <div>
+      <p class="section-label">Areas of Work</p>
+      <h2 class="section-title">Different worlds,<br>one mindset.</h2>
+    </div>
+    <p class="areas-header-right">Each discipline feeds the others.<br>The work is always connected.</p>
+  </div>
+
+  <div class="areas-grid">
+
+    <div class="area-card c-yellow">
+      <div class="area-dot c-yellow"></div>
+      <h3 class="area-title">Product Design</h3>
+      <p class="area-desc">UX, UI, and product strategy across digital platforms. 20 years of shipping things people use.</p>
+    </div>
+
+    <div class="area-card c-teal">
+      <div class="area-dot c-teal"></div>
+      <h3 class="area-title">3D & Unreal Engine</h3>
+      <p class="area-desc">Real-time environments, renders, and spatial experiences built in Unreal Engine.</p>
+    </div>
+
+    <div class="area-card c-coral">
+      <div class="area-dot c-coral"></div>
+      <h3 class="area-title">Game Design</h3>
+      <p class="area-desc">Mechanics, worlds, and interactive narratives. Games as the ultimate UX challenge.</p>
+    </div>
+
+    <div class="area-card c-violet">
+      <div class="area-dot c-violet"></div>
+      <h3 class="area-title">VFX & Visual Design</h3>
+      <p class="area-desc">Motion, effects, and visual storytelling. Where craft meets technology at its most expressive.</p>
+    </div>
+
+    <div class="area-card c-lime">
+      <div class="area-dot c-lime"></div>
+      <h3 class="area-title">Podcast Production<br>& Management</h3>
+      <p class="area-desc">End-to-end podcast production and management. Audio storytelling and distribution.</p>
+    </div>
+
+    <div class="area-card c-indigo">
+      <div class="area-dot c-indigo"></div>
+      <h3 class="area-title">Video Production</h3>
+      <p class="area-desc">From concept to final cut. Visual production for personal and professional projects.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI PROJECTS -->
+<section class="ai-projects" id="ai">
+  <div class="ai-header">
+    <div>
+      <p class="section-label">Recent Projects</p>
+      <h2 class="section-title">Building with<br>intelligence.</h2>
+    </div>
+    <p class="ai-intro">Experiments at the frontier of AI, design, and creative technology. Each project explores what becomes possible when you combine craft with machine intelligence.</p>
+  </div>
+
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div class="project-number">01</div>
+      <div>
+        <div class="project-name">Lelit Distrikt Experience</div>
+        <div class="project-desc">Interactive metaverse-style environment with intelligent NPCs. Platform for storytelling, education and entertainment</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
+        <span class="project-badge">3D modeling</span>
+        <span class="project-badge">Unreal Engine</span>
+        <span class="project-badge">AI</span>
+        <span class="project-badge">Metaverse</span>
+        <span class="project-badge">Virtual Reality</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-number">02</div>
+      <div>
+        <div class="project-name">Auggy Chat</div>
+        <div class="project-desc">Component of the Lelit project, where user can interact with NPCs in a 2D interface as well as on the smartphone devices. Features private text and voice chat and extensive reasoning. Self-hosted with many integrations</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
+        <span class="project-badge">Mobile App</span>
+        <span class="project-badge">Pixel Art</span>
+        <span class="project-badge">AI chat</span>
+        <span class="project-badge">Metaverse</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-number">03</div>
+      <div>
+        <div class="project-name">Podcast Studio Production App</div>
+        <div class="project-desc">App that uses Captivate's API and provides a suite of features needed for a streamlined podcast production at scale. It uses a myriad of AI features to generate assets locally and remotely</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
+        <span class="project-badge">MacOS App</span>
+        <span class="project-badge">Podcasting</span>
+        <span class="project-badge">AI</span>
+        <span class="project-badge">UX Design</span>
+        <span class="project-badge">Productivity</span>
+        <span class="project-badge">Product Design</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-number">04</div>
+      <div>
+        <div class="project-name">Audio Meta</div>
+        <div class="project-desc">Sophisticated audio media management system used to organise and consume audio files. Useful for archivists, journalists, audio note enthusiasts. Powered by AI transcription and cataloguing</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
+        <span class="project-badge">MacOS App</span>
+        <span class="project-badge">Windows App</span>
+        <span class="project-badge">UX Design</span>
+        <span class="project-badge">Product Design</span>
+        <span class="project-badge">Database</span>
+        <span class="project-badge">AI</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Let's make<br>something great.</h2>
+    <p class="contact-lead">Whether you want to collaborate, talk shop about design or AI, or just say hello — I'd love to hear from you.</p>
+    <a href="mailto:whupert@gmail.com" class="btn-primary">Send Me a Message</a>
+  </div>
+
+  <div>
+    <div class="contact-links">
+      <a href="mailto:whupert@gmail.com" class="contact-link">
+        <div class="contact-link-dot"></div>
+        whupert@gmail.com
+      </a>
+      <a href="#" class="contact-link">
+        <div class="contact-link-dot"></div>
+        Berlin, Germany - Remote (preferred)
+      </a>
+    </div>
+    <div class="social-grid">
+      <a href="https://www.linkedin.com/in/wojciechhupert/" class="social-link">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Wojciech Hupert. All rights reserved.</p>
+  <span class="foot-logo">WH</span>
+</footer>
+
+</body>
+</html>
