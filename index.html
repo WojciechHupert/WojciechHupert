@@ -3,10 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wojciech Hupert — Product Designer</title>
+  <title>Wojciech Hupert — Product Designer in Berlin | AI Workflow &amp; UX</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Wojciech Hupert — Product Designer in Berlin with 20+ years of experience. Specialising in AI-driven design workflows, product strategy, 3D, and interactive experiences.">
+  <meta name="keywords" content="Product Designer Berlin, AI Product Design, UX Designer Berlin, AI Workflow Designer, Product Designer Germany, Wojciech Hupert">
+  <meta name="author" content="Wojciech Hupert">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wojciechhupert.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wojciech Hupert — Product Designer in Berlin">
+  <meta property="og:description" content="Product Designer with 20+ years experience. AI-driven workflows, product strategy, 3D &amp; interactive experiences. Based in Berlin.">
+  <meta property="og:url" content="https://wojciechhupert.github.io/">
+  <meta property="og:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Wojciech Hupert">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wojciech Hupert — Product Designer in Berlin">
+  <meta name="twitter:description" content="Product Designer with 20+ years experience. AI-driven workflows, product strategy, 3D &amp; interactive experiences. Based in Berlin.">
+  <meta name="twitter:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -101,17 +124,58 @@
       overflow: hidden;
     }
 
-    .hero-bg-text {
+    .hero-video {
       position: absolute;
-      top: -0.08em; right: -0.04em;
-      font-family: 'Fraunces', serif;
-      font-weight: 900;
-      font-size: 42vw;
-      line-height: 1;
-      color: rgba(28, 20, 73, 0.09);
-      user-select: none;
-      pointer-events: none;
-      letter-spacing: -0.04em;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 214, 0, 0.82);
+      z-index: 2;
+    }
+
+    .hero > *:not(.hero-video):not(.hero-overlay) {
+      position: relative;
+      z-index: 3;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.25rem;
+      right: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(28,20,73,0.4);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint-line {
+      width: 1px;
+      height: 48px;
+      background: rgba(28,20,73,0.25);
+      transform-origin: top;
+      animation: scrollLine 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: scaleY(1); opacity: 0; }
     }
 
     .hero-eyebrow {
@@ -160,6 +224,14 @@
       color: rgba(28,20,73,0.75);
       transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
       cursor: default;
+      opacity: 0;
+      animation: tagIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: var(--tag-delay, 0ms);
+    }
+
+    @keyframes tagIn {
+      from { opacity: 0; transform: translateY(8px) rotate(var(--tag-skew, 0deg)); }
+      to   { opacity: 1; transform: translateY(0) rotate(0deg); }
     }
 
     .tag:hover {
@@ -225,6 +297,68 @@
       margin-bottom: 1.5rem;
     }
 
+    .section-title .playful {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.15em;
+      display: inline-block;
+      animation: subtleGlitch 2.5s ease-in-out 1;
+      animation-fill-mode: both;
+    }
+
+    @keyframes subtleGlitch {
+      0% {
+        opacity: 0.6;
+        text-shadow: -1px 0 rgba(28,20,73,0.1), 1px 0 rgba(28,20,73,0.05);
+      }
+      30% {
+        opacity: 0.7;
+        text-shadow: -1.5px 0 rgba(28,20,73,0.15), 1px 0 rgba(28,20,73,0.08);
+      }
+      60% {
+        opacity: 0.85;
+        text-shadow: -0.5px 0 rgba(28,20,73,0.12), 1.5px 0 rgba(28,20,73,0.1);
+      }
+      100% {
+        opacity: 1;
+        text-shadow: none;
+      }
+    }
+
+    .about .section-title .playful {
+      color: rgba(255,255,255,0.95);
+    }
+
+    .contact .section-title .playful {
+      color: var(--indigo);
+    }
+
+    .about .section-title .playful,
+    .ai-projects .section-title .playful {
+      animation: subtleGlitchLight 2.5s ease-in-out 1;
+      animation-fill-mode: both;
+    }
+
+    @keyframes subtleGlitchLight {
+      0% {
+        opacity: 0.6;
+        text-shadow: -1px 0 rgba(255,255,255,0.1), 1px 0 rgba(255,255,255,0.05);
+      }
+      30% {
+        opacity: 0.7;
+        text-shadow: -1.5px 0 rgba(255,255,255,0.15), 1px 0 rgba(255,255,255,0.08);
+      }
+      60% {
+        opacity: 0.85;
+        text-shadow: -0.5px 0 rgba(255,255,255,0.12), 1.5px 0 rgba(255,255,255,0.1);
+      }
+      100% {
+        opacity: 1;
+        text-shadow: none;
+      }
+    }
+
     /* ABOUT */
     .about {
       background: #000000;
@@ -233,6 +367,32 @@
       grid-template-columns: 1.1fr 0.9fr;
       align-items: stretch;
       position: relative;
+      overflow: hidden;
+    }
+
+    .about-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .about-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 2;
+    }
+
+    .about > *:not(.about-video):not(.about-overlay) {
+      position: relative;
+      z-index: 3;
     }
 
     .about-text {
@@ -468,6 +628,35 @@
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 214, 0, 0.82);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .contact > *:not(.contact-video) {
+      position: relative;
+      z-index: 2;
     }
 
     .contact .section-label { color: rgba(28,20,73,0.45); }
@@ -506,6 +695,7 @@
       background: var(--indigo);
       border-radius: 50%;
       flex-shrink: 0;
+      display: none;
     }
 
     .social-grid {
@@ -555,6 +745,8 @@
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .hero, .about, .areas, .ai-projects, .contact { padding: 5rem 1.5rem; }
+      .hero { padding-top: 9rem; }
+      .scroll-hint { right: 1.5rem; }
       .about { grid-template-columns: 1fr; }
       .about-photo { aspect-ratio: 3/2; height: auto; }
       .areas-header { flex-direction: column; align-items: flex-start; }
@@ -569,10 +761,30 @@
     }
 
     @media (max-width: 600px) {
+      .scroll-hint { display: none; }
       .areas-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Wojciech Hupert",
+    "jobTitle": "Product Designer",
+    "description": "Product Designer with 20+ years of experience in Berlin, specialising in AI-driven design workflows.",
+    "url": "https://wojciechhupert.github.io/",
+    "email": "whupert@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "sameAs": ["https://www.linkedin.com/in/wojciechhupert/"]
+  }
+  </script>
 </head>
 <body>
 
@@ -589,34 +801,47 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg-text" aria-hidden="true">WH</div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="bg_web.webm" type="video/webm">
+    <source src="bg_web.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <p class="hero-eyebrow">Product Designer &nbsp;·&nbsp; Berlin</p>
   <h1 class="hero-name">Wojciech<br>Hupert</h1>
   <p class="hero-tagline">Designing products. Exploring worlds.<br>Building at the edge of what's possible.</p>
   <div class="hero-tags">
-    <span class="tag">Product Design</span>
-    <span class="tag">UX · UI</span>
-    <span class="tag">Graphic Design</span>
-    <span class="tag">Branding</span>
-    <span class="tag">3D Design</span>
-    <span class="tag">Unreal Engine</span>
-    <span class="tag">VFX</span>
-    <span class="tag">AI</span>
-    <span class="tag">Game Design</span>
-    <span class="tag">Video Production</span>
-    <span class="tag">Podcast Production</span>
+    <span class="tag" style="--tag-delay:600ms;--tag-skew:-1.5deg">Product Design</span>
+    <span class="tag" style="--tag-delay:660ms;--tag-skew:1.2deg">UX · UI</span>
+    <span class="tag" style="--tag-delay:710ms;--tag-skew:-0.8deg">Graphic Design</span>
+    <span class="tag" style="--tag-delay:760ms;--tag-skew:1.6deg">Branding</span>
+    <span class="tag" style="--tag-delay:810ms;--tag-skew:-1.1deg">3D Design</span>
+    <span class="tag" style="--tag-delay:860ms;--tag-skew:0.9deg">Unreal Engine</span>
+    <span class="tag" style="--tag-delay:900ms;--tag-skew:-1.4deg">VFX</span>
+    <span class="tag" style="--tag-delay:940ms;--tag-skew:1.3deg">AI</span>
+    <span class="tag" style="--tag-delay:980ms;--tag-skew:-0.7deg">Game Design</span>
+    <span class="tag" style="--tag-delay:1020ms;--tag-skew:1.1deg">Video Production</span>
+    <span class="tag" style="--tag-delay:1060ms;--tag-skew:-1.3deg">Podcast Production</span>
   </div>
   <div class="hero-cta">
     <a href="#areas" class="btn-primary" style="display: none;">See My Work</a>
     <a href="mailto:whupert@gmail.com" class="btn-primary">Get in Touch</a>
   </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-hint-line"></div>
+    <span>Scroll</span>
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
+  <video class="about-video" autoplay muted loop playsinline>
+    <source src="bg_noise.webm" type="video/webm">
+    <source src="bg_noise.mp4" type="video/mp4">
+  </video>
+  <div class="about-overlay"></div>
   <div class="about-text">
     <p class="section-label">About Me</p>
-    <h2 class="section-title">20 years of design.<br>A lifetime of curiosity.</h2>
+    <h2 class="section-title">20 years of design.<br><span class="playful">A lifetime of curiosity.</span></h2>
     <p>I'm a product designer with two decades of experience spanning UX, UI, Graphic Design, and Branding. I work at the intersection of craft, technology, and creative exploration — currently based in Berlin.</p>
     <p>Beyond product design, I build real-time environments in Unreal Engine, experiment with AI, design games, produce video, and run a podcast. I believe the best designers never stop making things.</p>
     <div style="margin-top: 2rem;">
@@ -638,7 +863,7 @@
     </div>
   </div>
   <div class="about-photo">
-    <img src="WojciechHupert2026.png" alt="Wojciech Hupert">
+    <img src="WojciechHupert2026.png" alt="Wojciech Hupert — Product Designer in Berlin">
   </div>
 </section>
 
@@ -647,7 +872,7 @@
   <div class="areas-header">
     <div>
       <p class="section-label">Areas of Work</p>
-      <h2 class="section-title">Different worlds,<br>one mindset.</h2>
+      <h2 class="section-title">Different worlds,<br><span class="playful">one mindset.</span></h2>
     </div>
     <p class="areas-header-right">Each discipline feeds the others.<br>The work is always connected.</p>
   </div>
@@ -698,7 +923,7 @@
   <div class="ai-header">
     <div>
       <p class="section-label">Recent Projects</p>
-      <h2 class="section-title">Building with<br>intelligence.</h2>
+      <h2 class="section-title">Building with<br><span class="playful">intelligence.</span></h2>
     </div>
     <p class="ai-intro">Experiments at the frontier of AI, design, and creative technology. Each project explores what becomes possible when you combine craft with machine intelligence.</p>
   </div>
@@ -771,9 +996,13 @@
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
+  <video class="contact-video" autoplay muted loop playsinline>
+    <source src="bg_web.webm" type="video/webm">
+    <source src="bg_web.mp4" type="video/mp4">
+  </video>
   <div>
     <p class="section-label">Get in Touch</p>
-    <h2 class="section-title">Let's make<br>something great.</h2>
+    <h2 class="section-title">Let's make<br><span class="playful">something great.</span></h2>
     <p class="contact-lead">Whether you want to collaborate, talk shop about design or AI, or just say hello — I'd love to hear from you.</p>
     <a href="mailto:whupert@gmail.com" class="btn-primary">Send Me a Message</a>
   </div>
