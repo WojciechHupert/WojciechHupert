@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cMonk Podcast Studio — Shape Seeds</title>
+
+  <!-- SEO -->
+  <meta name="description" content="cMonk Podcast Studio: Professional Audio Engineering and Intelligence. Specialized desktop environment integrating professional audio capture with advanced cognitive processing.">
+  <meta name="keywords" content="cMonk Podcast Studio, Audio Engineering, AI Audio, Podcast Production, Shape Seeds, Audio Capture, Cognitive Processing">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wojciechhupert.github.io/project-podcast.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="cMonk Podcast Studio — Shape Seeds">
+  <meta property="og:description" content="Professional Audio Engineering and Intelligence. Specialized desktop environment integrating professional audio capture with advanced cognitive processing.">
+  <meta property="og:url" content="https://wojciechhupert.github.io/project-podcast.html">
+  <meta property="og:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Shape Seeds">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="cMonk Podcast Studio — Shape Seeds">
+  <meta name="twitter:description" content="Professional Audio Engineering and Intelligence. Specialized desktop environment integrating professional audio capture with advanced cognitive processing.">
+  <meta name="twitter:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: var(--indigo);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    /* HEADER */
+    .project-header {
+      padding: 12rem 3rem 6rem;
+      background: var(--teal);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 2;
+    }
+
+    .project-header > *:not(.project-video):not(.project-overlay) {
+      position: relative;
+      z-index: 3;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      color: var(--yellow);
+    }
+
+    .project-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+
+    .project-subtitle {
+      display: block;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 300;
+      margin-top: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.02em;
+    }
+
+    .project-intro {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    /* CONTENT */
+    .project-content {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 8rem;
+      align-items: flex-start;
+    }
+
+    .content-text h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--indigo);
+      line-height: 1.2;
+    }
+
+    .content-text p {
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+      font-size: 1.05rem;
+      opacity: 0.85;
+    }
+
+    .content-text ul {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .content-text li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .content-text li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    .content-text li strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    .content-image-placeholder {
+      aspect-ratio: 16/10;
+      background: var(--cream-dark);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      border: 1px dashed rgba(0,0,0,0.1);
+      position: sticky;
+      top: 6rem;
+    }
+
+    /* OTHER PROJECTS CAROUSEL */
+    .other-projects {
+      padding: 8rem 3rem;
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .playful {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--teal);
+    }
+
+    .carousel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .carousel-item {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .carousel-item:hover {
+      transform: translateY(-12px);
+    }
+
+    .carousel-thumb {
+      aspect-ratio: 16/10;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      opacity: 0.9;
+    }
+
+    .carousel-item-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--indigo);
+      margin-bottom: 0.5rem;
+    }
+
+    .carousel-item-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-logo { font-family: 'Fraunces', serif; font-weight: 700; color: rgba(255,214,0,0.4); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-header, .project-content, .other-projects { padding: 5rem 1.5rem; }
+      .project-header { padding-top: 10rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .content-image-placeholder { position: static; }
+      .carousel-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Beta Waitlist */
+    .beta-access { background: var(--teal); padding: 6rem 3rem; text-align: center; }
+    .beta-access-inner { max-width: 600px; margin: 0 auto; }
+    .beta-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(28,20,73,0.45); margin-bottom: 1rem; }
+    .beta-headline { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.0; letter-spacing: -0.03em; color: var(--indigo); margin-bottom: 1.25rem; }
+    .beta-body { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(28,20,73,0.7); margin-bottom: 2.5rem; }
+    .beta-btn { display: inline-block; padding: 0.9rem 2rem; background: var(--indigo); color: var(--yellow); font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--indigo); transition: background 0.2s, transform 0.15s; }
+    .beta-btn:hover { background: var(--indigo-mid); transform: translateY(-2px); }
+    @media (max-width: 600px) { .beta-access { padding: 4rem 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Shape Seeds</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#areas">Work</a></li>
+    <li><a href="index.html#ai">AI Projects</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <video class="project-video" autoplay muted loop playsinline>
+    <source src="bg_noise.webm" type="video/webm">
+    <source src="bg_noise.mp4" type="video/mp4">
+  </video>
+  <div class="project-overlay"></div>
+  <div class="section-label">Project 03</div>
+  <h1 class="project-title">cMonk Podcast Studio <span class="project-subtitle">Audio Engineering & Intelligence</span></h1>
+  <p class="project-intro">A specialized desktop environment integrating professional audio capture with advanced cognitive processing. A unified workspace for creators who require technical precision and efficient content distribution.</p>
+</header>
+
+<main class="project-content">
+  <!-- SECTION 1 -->
+  <div class="content-grid">
+    <div class="content-text">
+      <h2>High-Fidelity Capture and Control</h2>
+      <p>The recording module is engineered for maximum signal integrity and reliability.</p>
+      <ul>
+        <li><strong>Precision Monitoring:</strong> Real-time waveform visualization facilitates accurate level management during sessions.</li>
+        <li><strong>Audio Governance:</strong> The interface includes professional gain adjustment, live monitoring, and normalization protocols.</li>
+        <li><strong>Lossless Archiving:</strong> Sessions are exported as high-quality WAV files to local storage to maintain archival standards.</li>
+        <li><strong>Production Pipeline:</strong> A direct bridge allows for the immediate transfer of raw audio into the post-production analysis suite.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Audio Capture Interface</div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="content-grid" style="direction: rtl;">
+    <div class="content-text" style="direction: ltr;">
+      <h2>Cognitive Editorial Suite</h2>
+      <p>The analysis engine utilizes frontier language models and speech-to-text processing to handle complex editorial requirements.</p>
+      <ul>
+        <li><strong>Automated Transcription:</strong> The system produces high-accuracy, time-stamped transcripts in seconds.</li>
+        <li><strong>Content Evaluation:</strong> Each episode undergoes an objective critique, receiving scores for coherence, production quality, and audience value.</li>
+        <li><strong>Asset Generation:</strong> The suite automatically derives a full range of marketing materials, including SEO-optimized titles and detailed show notes.</li>
+        <li><strong>Omnichannel Marketing:</strong> The engine generates platform-specific copy for LinkedIn, Instagram, and X, alongside full-length blog posts.</li>
+        <li><strong>Audience Engagement:</strong> Creators can instantly access pull quotes, carousel scripts, and teaser narratives derived directly from the transcript.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">AI Editorial Dashboard</div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="content-grid">
+    <div class="content-text">
+      <h2>Performance Intelligence and Growth</h2>
+      <p>Growth tracking tools move beyond simple metrics to provide actionable industry context.</p>
+      <ul>
+        <li><strong>Industry Benchmarking:</strong> Performance is measured against global percentiles (top 1%, 5%, or 10% of podcasts).</li>
+        <li><strong>Consistency Mapping:</strong> An activity grid visualizes publishing frequency, supporting a high "Consistency Score."</li>
+        <li><strong>Snapshot Comparisons:</strong> The system allows for the archival and comparison of performance data over time to track long-term evolution.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Analytics & Growth Metrics</div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="content-grid" style="direction: rtl;">
+    <div class="content-text" style="direction: ltr;">
+      <h2>Centralized Asset Management</h2>
+      <p>The Content Hub serves as a local repository for all generated media and metadata.</p>
+      <ul>
+        <li><strong>Unified Indexing:</strong> Assets for both scheduled and published episodes are organized in a single searchable library.</li>
+        <li><strong>Direct Syncing:</strong> Deep integration with Captivate.fm enables real-time synchronization of show metadata and episode statuses.</li>
+        <li><strong>Operational Dashboard:</strong> Centralized mission control provides immediate access to RSS feeds, analytics, and publication countdowns.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Asset Management Hub</div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="content-grid">
+    <div class="content-text">
+      <h2>Technical Architecture and Design</h2>
+      <p>The software is built on a high-performance stack designed for the modern desktop.</p>
+      <ul>
+        <li><strong>Reactive Framework:</strong> Built with React 18 and Vite, the application ensures low-latency interactions and efficient state management.</li>
+        <li><strong>Sophisticated Aesthetic:</strong> The "Soft UI" dark-mode theme is refined with subtle textures to reduce visual fatigue during long editing sessions.</li>
+        <li><strong>Offline Resilience:</strong> A local JSON-based persistence layer ensures that all indices and assets remain accessible without an active network connection.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Technical Stack & UI System</div>
+  </div>
+</main>
+
+<section class="beta-access">
+  <div class="beta-access-inner">
+    <p class="beta-eyebrow">Early Access</p>
+    <h2 class="beta-headline">Now in private beta</h2>
+    <p class="beta-body">This app is currently being tested with a small, invite-only group. If you're interested in getting early access, join the waiting list — I'll reach out when a spot opens up.</p>
+    <a href="mailto:whupert@gmail.com?subject=I%20want%20to%20try%20this%20app%20cMonk%20Podcast%20Studio" class="beta-btn">Give me access</a>
+  </div>
+</section>
+
+<section class="other-projects">
+  <h2 class="section-title">Explore <span class="playful">Other Projects</span></h2>
+  <div class="carousel-grid">
+    
+    <a href="project-lelit.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--indigo);">01</div>
+      <div class="carousel-item-title">Lelit Distrikt Experience</div>
+      <div class="carousel-item-desc">Interactive metaverse-style environment with intelligent NPCs.</div>
+    </a>
+
+    <a href="project-auggy.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--coral);">02</div>
+      <div class="carousel-item-title">Auggy’s Shop</div>
+      <div class="carousel-item-desc">A specialized digital space for situated intelligence modeled after a historic Brooklyn cigar shop.</div>
+    </a>
+
+    <a href="project-audio-meta.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--violet);">04</div>
+      <div class="carousel-item-title">AudioMeta</div>
+      <div class="carousel-item-desc">Sophisticated AI-driven audio media management and local transcription system.</div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shape Seeds. All rights reserved.</p>
+  <span class="foot-logo">SS</span>
+</footer>
+
+</body>
+</html>

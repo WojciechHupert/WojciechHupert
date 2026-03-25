@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls /Users/cmonkx/Documents/CODE/Wojciechhupert_home/*.pdf)",
+      "Bash(git -C /Users/cmonkx/Documents/CODE/Wojciechhupert_home status --short)",
+      "Bash(git -C /Users/cmonkx/Documents/CODE/Wojciechhupert_home ls-files)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
