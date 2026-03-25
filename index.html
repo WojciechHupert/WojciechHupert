@@ -190,12 +190,22 @@
     .hero-name {
       font-family: 'Fraunces', serif;
       font-weight: 900;
-      font-size: clamp(4rem, 10.5vw, 9.5rem);
+      font-size: clamp(3.5rem, 10vw, 9.5rem);
       line-height: 0.92;
       letter-spacing: -0.04em;
       color: var(--indigo);
       margin-bottom: 1.75rem;
       position: relative;
+      white-space: nowrap;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-name { white-space: normal; }
+      .mobile-only { display: block; }
     }
 
     .hero-tagline {
@@ -807,7 +817,7 @@
   </video>
   <div class="hero-overlay"></div>
   <p class="hero-eyebrow">Product Designer &nbsp;·&nbsp; Berlin</p>
-  <h1 class="hero-name">Shape<br>Seeds</h1>
+  <h1 class="hero-name">Shape <br class="mobile-only">Seeds</h1>
   <p class="hero-tagline">Designing products. Exploring worlds.<br>Building at the edge of what's possible.</p>
   <div class="hero-tags">
     <span class="tag" style="--tag-delay:600ms;--tag-skew:-1.5deg">Product Design</span>
