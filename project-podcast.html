@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cMonk Podcast Studio — Shape Seeds</title>
+  <title>Podcast Monk Studio — AI-Powered Creator Suite</title>
 
   <!-- SEO -->
-  <meta name="description" content="cMonk Podcast Studio: Professional Audio Engineering and Intelligence. Specialized desktop environment integrating professional audio capture with advanced cognitive processing.">
-  <meta name="keywords" content="cMonk Podcast Studio, Audio Engineering, AI Audio, Podcast Production, Shape Seeds, Audio Capture, Cognitive Processing">
+  <meta name="description" content="Podcast Monk Studio: The ultimate cross-platform creator suite for podcasters. Integrated recording, cloud and local AI processing, comprehensive analytics, and direct monetization integration all in one powerful desktop application.">
+  <meta name="keywords" content="Podcast Monk Studio, AI Podcast Studio, Audio Engineering, Local AI Transcription, Podcast Production, Shape Seeds, Podcast Analytics, Captivate Hosting Integration, WhisperAI">
   <meta name="author" content="Shape Seeds">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://wojciechhupert.github.io/project-podcast.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="cMonk Podcast Studio — Shape Seeds">
-  <meta property="og:description" content="Professional Audio Engineering and Intelligence. Specialized desktop environment integrating professional audio capture with advanced cognitive processing.">
+  <meta property="og:title" content="Podcast Monk Studio — AI-Powered Creator Suite">
+  <meta property="og:description" content="Podcast Monk Studio: The ultimate cross-platform creator suite for podcasters. Integrated recording, cloud and local AI processing, comprehensive analytics, and direct monetization integration all in one powerful application.">
   <meta property="og:url" content="https://wojciechhupert.github.io/project-podcast.html">
   <meta property="og:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
   <meta property="og:locale" content="en_US">
@@ -23,8 +23,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="cMonk Podcast Studio — Shape Seeds">
-  <meta name="twitter:description" content="Professional Audio Engineering and Intelligence. Specialized desktop environment integrating professional audio capture with advanced cognitive processing.">
+  <meta name="twitter:title" content="Podcast Monk Studio — AI-Powered Creator Suite">
+  <meta name="twitter:description" content="Podcast Monk Studio: The ultimate cross-platform creator suite for podcasters. Integrated recording, cloud and local AI processing, comprehensive analytics, and direct monetization integration.">
   <meta name="twitter:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +47,13 @@
       --white:       #FFFFFF;
       --charcoal:    #1A1A1A;
       --muted:       #888070;
+      --max-width:   1200px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
     }
 
     html { scroll-behavior: smooth; }
@@ -63,11 +70,16 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 200;
+      padding: 1.1rem 3rem;
+      background: var(--indigo);
+    }
+
+    .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 3rem;
-      background: var(--indigo);
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
 
     .nav-logo {
@@ -103,6 +115,13 @@
       overflow: hidden;
     }
 
+    .header-inner {
+      position: relative;
+      z-index: 3;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
     .project-video {
       position: absolute;
       top: 0;
@@ -123,7 +142,7 @@
       z-index: 2;
     }
 
-    .project-header > *:not(.project-video):not(.project-overlay) {
+    .project-header .header-inner > *:not(.project-video):not(.project-overlay) {
       position: relative;
       z-index: 3;
     }
@@ -167,7 +186,7 @@
     /* CONTENT */
     .project-content {
       padding: 6rem 3rem;
-      max-width: 1200px;
+      max-width: var(--max-width);
       margin: 0 auto;
     }
 
@@ -238,6 +257,133 @@
       border: 1px dashed rgba(0,0,0,0.1);
       position: sticky;
       top: 6rem;
+    }
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 6rem;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-image.half-height {
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .product-image:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(10, 10, 26, 0.95);
+      flex-direction: column;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-toolbar {
+      position: absolute;
+      top: 2rem;
+      right: 3rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 1010;
+    }
+    .lightbox-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .lightbox-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .lightbox-content {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+      cursor: grab;
+    }
+    .lightbox-content:active {
+      cursor: grabbing;
+    }
+    .lightbox-content img {
+      width: auto;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      transition: transform 0.1s ease-out;
+      transform-origin: center center;
+      pointer-events: none;
+    }
+
+    /* Tech Architecture */
+    .tech-architecture {
+      background: #251D4D; /* Softer indigo */
+      color: var(--white);
+      padding: 6rem 4rem;
+      border-radius: 24px;
+      margin: 8rem 0;
+      text-align: center;
+    }
+    .tech-architecture h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: inherit;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+      text-align: left;
+    }
+    .tech-card {
+      background: rgba(255,255,255,0.05); /* slightly lighter for softness */
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+    .tech-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .tech-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: inherit;
+      font-weight: 700;
+    }
+    .tech-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.8;
+      margin-bottom: 0;
     }
 
     /* OTHER PROJECTS CAROUSEL */
@@ -342,13 +488,15 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Shape Seeds</a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#areas">Work</a></li>
-    <li><a href="index.html#ai">AI Projects</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Shape Seeds</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#areas">Work</a></li>
+      <li><a href="index.html#ai">AI Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <header class="project-header">
@@ -357,83 +505,140 @@
     <source src="bg_noise.mp4" type="video/mp4">
   </video>
   <div class="project-overlay"></div>
-  <div class="section-label">Project 03</div>
-  <h1 class="project-title">cMonk Podcast Studio <span class="project-subtitle">Audio Engineering & Intelligence</span></h1>
-  <p class="project-intro">A specialized desktop environment integrating professional audio capture with advanced cognitive processing. A unified workspace for creators who require technical precision and efficient content distribution.</p>
+  <div class="header-inner">
+    <div class="section-label">Production Command Center</div>
+    <h1 class="project-title">Podcast Monk Studio <span class="project-subtitle">The AI-Powered Creator Suite</span></h1>
+    <p class="project-intro">A comprehensive Mac and Windows creator suite designed specifically for solo podcasters and independent producers who need the power of an entire production team. Built by a podcaster for podcasters, the application connects raw recording, deep AI analysis, and multi-dimensional growth tracking within a single interface.</p>
+  </div>
 </header>
 
 <main class="project-content">
-  <!-- SECTION 1 -->
-  <div class="content-grid">
-    <div class="content-text">
-      <h2>High-Fidelity Capture and Control</h2>
-      <p>The recording module is engineered for maximum signal integrity and reliability.</p>
-      <ul>
-        <li><strong>Precision Monitoring:</strong> Real-time waveform visualization facilitates accurate level management during sessions.</li>
-        <li><strong>Audio Governance:</strong> The interface includes professional gain adjustment, live monitoring, and normalization protocols.</li>
-        <li><strong>Lossless Archiving:</strong> Sessions are exported as high-quality WAV files to local storage to maintain archival standards.</li>
-        <li><strong>Production Pipeline:</strong> A direct bridge allows for the immediate transfer of raw audio into the post-production analysis suite.</li>
-      </ul>
-    </div>
-    <div class="content-image-placeholder">Audio Capture Interface</div>
-  </div>
-
-  <!-- SECTION 2 -->
+  <!-- SECTION 0: Production Hub -->
   <div class="content-grid" style="direction: rtl;">
     <div class="content-text" style="direction: ltr;">
-      <h2>Cognitive Editorial Suite</h2>
-      <p>The analysis engine utilizes frontier language models and speech-to-text processing to handle complex editorial requirements.</p>
+      <h2>Unified Production Hub</h2>
+      <p>Manage your entire production network from a single, intuitive dashboard. Monitor active shows, track publication progress, and manage your content library with zero friction.</p>
       <ul>
-        <li><strong>Automated Transcription:</strong> The system produces high-accuracy, time-stamped transcripts in seconds.</li>
-        <li><strong>Content Evaluation:</strong> Each episode undergoes an objective critique, receiving scores for coherence, production quality, and audience value.</li>
-        <li><strong>Asset Generation:</strong> The suite automatically derives a full range of marketing materials, including SEO-optimized titles and detailed show notes.</li>
-        <li><strong>Omnichannel Marketing:</strong> The engine generates platform-specific copy for LinkedIn, Instagram, and X, alongside full-length blog posts.</li>
-        <li><strong>Audience Engagement:</strong> Creators can instantly access pull quotes, carousel scripts, and teaser narratives derived directly from the transcript.</li>
+        <li><strong>Network Overview:</strong> Get a bird's-eye view of your active shows and total artifacts.</li>
+        <li><strong>Episode Lifecycle Tracking:</strong> Monitor scheduled episodes and drafts in real-time.</li>
+        <li><strong>Centralized Library:</strong> Access and manage your entire podcast catalog from one location.</li>
+        <li><strong>Streamlined Navigation:</strong> Quickly jump between recording, intelligence, and analytics.</li>
       </ul>
     </div>
-    <div class="content-image-placeholder">AI Editorial Dashboard</div>
+    <img src="dashboard.png" alt="Unified Production Hub UI" class="product-image">
   </div>
 
-  <!-- SECTION 3 -->
+  <!-- SECTION 1: Recording Studio -->
   <div class="content-grid">
     <div class="content-text">
-      <h2>Performance Intelligence and Growth</h2>
-      <p>Growth tracking tools move beyond simple metrics to provide actionable industry context.</p>
+      <h2>Integrated Recording Studio</h2>
+      <p>Capture professional audio with live waveform visualization for real-time signal feedback. The intelligent production pipeline reclaims your time by handling the technical heavy lifting.</p>
       <ul>
-        <li><strong>Industry Benchmarking:</strong> Performance is measured against global percentiles (top 1%, 5%, or 10% of podcasts).</li>
-        <li><strong>Consistency Mapping:</strong> An activity grid visualizes publishing frequency, supporting a high "Consistency Score."</li>
-        <li><strong>Snapshot Comparisons:</strong> The system allows for the archival and comparison of performance data over time to track long-term evolution.</li>
+        <li><strong>Live Waveforms:</strong> Visual signal feedback ensures your levels are perfect throughout the session.</li>
+        <li><strong>One-Click Post-Production:</strong> The pipeline automatically prepares local files for processing with a single click.</li>
+        <li><strong>Direct-to-Neural Flow:</strong> Move finished recordings instantly to the Intelligence Lab for immediate analysis.</li>
+        <li><strong>Intelligent Local Storage:</strong> Securely manage your high-fidelity audio assets directly on your machine.</li>
       </ul>
     </div>
-    <div class="content-image-placeholder">Analytics & Growth Metrics</div>
+    <img src="recording.png" alt="Integrated Recording Studio UI" class="product-image">
   </div>
 
-  <!-- SECTION 4 -->
+  <!-- SECTION 2: AI Intelligence Lab -->
   <div class="content-grid" style="direction: rtl;">
     <div class="content-text" style="direction: ltr;">
-      <h2>Centralized Asset Management</h2>
-      <p>The Content Hub serves as a local repository for all generated media and metadata.</p>
+      <h2>Flexible AI Intelligence Lab</h2>
+      <p>Process your audio on your terms. Whether you need the privacy of local processing or the power of the cloud, Podcast Monk Studio adapts to your workflow.</p>
       <ul>
-        <li><strong>Unified Indexing:</strong> Assets for both scheduled and published episodes are organized in a single searchable library.</li>
-        <li><strong>Direct Syncing:</strong> Deep integration with Captivate.fm enables real-time synchronization of show metadata and episode statuses.</li>
-        <li><strong>Operational Dashboard:</strong> Centralized mission control provides immediate access to RSS feeds, analytics, and publication countdowns.</li>
+        <li><strong>Hybrid AI Orchestration:</strong> Use local LLMs and local WhisperAI to produce episodes completely offline, keeping costs low and data private.</li>
+        <li><strong>Cloud Connectivity:</strong> Seamlessly connect to all major cloud LLMs for advanced semantic reasoning and complex asset generation.</li>
+        <li><strong>Neural Audit:</strong> Receive objective Quality Scores for every episode, analyzing coherence and audience value.</li>
+        <li><strong>Deep Semantic Analysis:</strong> Go beyond transcription with an AI that understands the core themes of your content.</li>
       </ul>
     </div>
-    <div class="content-image-placeholder">Asset Management Hub</div>
+    <img src="intelligence-lab.png" alt="Flexible AI Intelligence Lab UI" class="product-image half-height">
   </div>
 
-  <!-- SECTION 5 -->
+  <!-- SECTION 3: Multi-Dimensional Insights -->
   <div class="content-grid">
     <div class="content-text">
-      <h2>Technical Architecture and Design</h2>
-      <p>The software is built on a high-performance stack designed for the modern desktop.</p>
+      <h2>Multi-Dimensional Insights</h2>
+      <p>Move beyond surface-level metrics. Podcast Monk Studio provides deep visibility into your production velocity and audience growth.</p>
       <ul>
-        <li><strong>Reactive Framework:</strong> Built with React 18 and Vite, the application ensures low-latency interactions and efficient state management.</li>
-        <li><strong>Sophisticated Aesthetic:</strong> The "Soft UI" dark-mode theme is refined with subtle textures to reduce visual fatigue during long editing sessions.</li>
-        <li><strong>Offline Resilience:</strong> A local JSON-based persistence layer ensures that all indices and assets remain accessible without an active network connection.</li>
+        <li><strong>Growth Benchmarking:</strong> Compare your episode performance against top global tiers (Top 1%, 5%, and 10%).</li>
+        <li><strong>Interactive Heatmaps:</strong> Visualize your content distribution across weeks and months to identify patterns.</li>
+        <li><strong>Production Velocity:</strong> Track how consistently you produce and publish content to maintain momentum.</li>
+        <li><strong>Stacked Bar Analytics:</strong> Get a granular view of your audience engagement across different categories.</li>
       </ul>
     </div>
-    <div class="content-image-placeholder">Technical Stack & UI System</div>
+    <img src="insights.png" alt="Multi-Dimensional Insights UI" class="product-image half-height">
+  </div>
+
+  <!-- SECTION 4: Asset Suite & Content Hub -->
+  <div class="tech-architecture" style="background: #FDFBFA; color: var(--charcoal); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);">
+    <div class="section-label" style="color: var(--teal);">Content Generation</div>
+    <h2>The Goldmine Asset Suite</h2>
+    <p style="max-width: 750px; margin: 0 auto; opacity: 0.8; font-size: 1.15rem; font-weight: 300;">Transform your audio into a library of high-value marketing assets. Your data stays local, encrypted, and accessible in the Persistent Content Hub.</p>
+    
+    <div class="tech-grid">
+      <div class="tech-card" style="background: var(--white); border: 1px solid rgba(0,0,0,0.05); color: var(--charcoal); box-shadow: 0 4px 12px rgba(0,0,0,0.02)">
+        <h3 style="color: var(--indigo);">SEO-Optimized Metadata</h3>
+        <p>Automatically generate compelling show notes, episode titles, and summaries that drive discovery and improve search rankings.</p>
+      </div>
+      <div class="tech-card" style="background: var(--white); border: 1px solid rgba(0,0,0,0.05); color: var(--charcoal); box-shadow: 0 4px 12px rgba(0,0,0,0.02)">
+        <h3 style="color: var(--indigo);">Social Media Command</h3>
+        <p>Instantly create engaging Instagram captions, professional LinkedIn posts, and viral X (Twitter) threads derived from your core message.</p>
+      </div>
+      <div class="tech-card" style="background: var(--white); border: 1px solid rgba(0,0,0,0.05); color: var(--charcoal); box-shadow: 0 4px 12px rgba(0,0,0,0.02)">
+        <h3 style="color: var(--indigo);">Creative Scripts</h3>
+        <p>Automatically produce highly-converting teaser scripts and long-form blog posts to effortlessly extend your multi-channel reach.</p>
+      </div>
+      <div class="tech-card" style="background: var(--white); border: 1px solid rgba(0,0,0,0.05); color: var(--charcoal); box-shadow: 0 4px 12px rgba(0,0,0,0.02)">
+        <h3 style="color: var(--indigo);">Unified Content Hub</h3>
+        <p>Access every master recording, snippet, and marketing asset across your entire network from a single, locally encrypted library.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 5: Hosting & Monetization -->
+  <div class="content-grid">
+    <div class="content-text">
+      <h2>Hosting & Monetization</h2>
+      <p>Publish with confidence and scale your revenue. Podcast Monk Studio integrates deeply with professional hosting platforms.</p>
+      <ul>
+        <li><strong>Native Captivate Integration:</strong> Optimized publishing workflows designed specifically for the Captivate API.</li>
+        <li><strong>Global Hosting APIs:</strong> Built-in support for all major podcast hosting providers for seamless distribution.</li>
+        <li><strong>Ad Management Addon:</strong> Scale your revenue or manage sponsorships directly within the application.</li>
+        <li><strong>Instant Publication:</strong> Push your final assets to your host with a single click once post-production is complete.</li>
+      </ul>
+    </div>
+    <img src="hosting.png" alt="Hosting & Monetization Interface UI" class="product-image">
+  </div>
+
+  <!-- SECTION 6: Technical Architecture -->
+  <div class="tech-architecture">
+    <div class="section-label" style="color: var(--teal);">Engineering</div>
+    <h2>Under the Hood: Technical Architecture</h2>
+    <p style="max-width: 750px; margin: 0 auto; opacity: 0.8; font-size: 1.15rem; font-weight: 300;">Podcast Monk Studio is a high-performance reactive desktop application built on a bleeding-edge stack for the modern creator.</p>
+    
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>Frontend Excellence</h3>
+        <p>Built on React 19 and Vite 7, featuring Concurrent Rendering and React Router 7 for zero-latency UI updates.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Native Audio Engine</h3>
+        <p>Low-latency audio buffer analysis via Wavesurfer.js and high-speed processing with FFmpeg.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Local Infrastructure</h3>
+        <p>A local Node.js Express server manages the file system and JSON metadata, ensuring everything stays fast and offline-ready.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Intelligent Design</h3>
+        <p>A clean default UI with skeleton context cards and standard Lucide React icons for a professional, premium feel.</p>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -442,7 +647,7 @@
     <p class="beta-eyebrow">Early Access</p>
     <h2 class="beta-headline">Now in private beta</h2>
     <p class="beta-body">This app is currently being tested with a small, invite-only group. If you're interested in getting early access, join the waiting list — I'll reach out when a spot opens up.</p>
-    <a href="mailto:whupert@gmail.com?subject=I%20want%20to%20try%20this%20app%20cMonk%20Podcast%20Studio" class="beta-btn">Give me access</a>
+    <a href="mailto:whupert@gmail.com?subject=I%20want%20to%20try%20this%20app%20Podcast%20Monk%20Studio" class="beta-btn">Give me access</a>
   </div>
 </section>
 
@@ -476,5 +681,106 @@
   <span class="foot-logo">SS</span>
 </footer>
 
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-toolbar">
+    <button id="lightbox-zoom-out" class="lightbox-btn" title="Zoom Out">-</button>
+    <button id="lightbox-zoom-in" class="lightbox-btn" title="Zoom In">+</button>
+    <button id="lightbox-close" class="lightbox-btn" title="Close">&times;</button>
+  </div>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="Enlarged UI View">
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const zoomInBtn = document.getElementById('lightbox-zoom-in');
+    const zoomOutBtn = document.getElementById('lightbox-zoom-out');
+    const content = document.querySelector('.lightbox-content');
+
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let startX, startY;
+
+    const updateTransform = () => {
+      lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    };
+
+    const resetZoom = (fitScale = 1) => {
+      scale = fitScale; translateX = 0; translateY = 0;
+      updateTransform();
+    };
+
+    document.querySelectorAll('.product-image').forEach(img => {
+      img.addEventListener('click', () => {
+        const onImgLoad = () => {
+          const winW = window.innerWidth * 0.9;
+          const winH = window.innerHeight * 0.9;
+          const natW = lightboxImg.naturalWidth || winW;
+          const natH = lightboxImg.naturalHeight || winH;
+          const fit = Math.min(1, winW / natW, winH / natH);
+          resetZoom(fit);
+          lightboxImg.removeEventListener('load', onImgLoad);
+        };
+        
+        lightboxImg.src = img.src;
+        if (lightboxImg.complete) onImgLoad();
+        else lightboxImg.addEventListener('load', onImgLoad);
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { lightboxImg.src = ''; resetZoom(); }, 300);
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Listen for Escape key to close the lightbox
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+
+    zoomInBtn.addEventListener('click', (e) => { e.stopPropagation(); scale = Math.min(scale + 0.5, 5); updateTransform(); });
+    zoomOutBtn.addEventListener('click', (e) => { e.stopPropagation(); scale = Math.max(scale - 0.5, 0.2); updateTransform(); });
+
+    content.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      scale += e.deltaY * -0.005;
+      scale = Math.min(Math.max(0.2, scale), 5);
+      updateTransform();
+    }, { passive: false });
+
+    content.addEventListener('mousedown', (e) => {
+      if (e.target !== closeBtn && e.target !== zoomInBtn && e.target !== zoomOutBtn) {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+      }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      translateX = e.clientX - startX;
+      translateY = e.clientY - startY;
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+  });
+</script>
+
 </body>
 </html>
+
