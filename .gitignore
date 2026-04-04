@@ -30,3 +30,6 @@ build/
 # Temporary files
 *.tmp
 .cache/
+
+# Local files (not pushed to GitHub)
+.local/

@@ -12,7 +12,8 @@
       "Bash(git-secrets --scan)",
       "Bash(grep -r \"api[_-]?key\\\\|secret\\\\|password\\\\|token\\\\|bearer\\\\|aws_\\\\|DATABASE_URL\" --include=*.js --include=*.jsx --include=*.ts --include=*.tsx --include=*.json --include=*.html --exclude-dir=.git --exclude-dir=node_modules)",
       "Bash(find . -name \".DS_Store\" -type f -delete)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(.gitignore:*)"
     ]
   }
 }
