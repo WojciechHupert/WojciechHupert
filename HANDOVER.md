@@ -28,7 +28,7 @@ Personal portfolio website for **Shape Seeds**, a product designer based in Berl
 | `theme-switcher.js` | **NEW** — Logic for theme toggling and UI injection. |
 | `project-inna.html` | Case study: Inna Shchepanska. |
 | `project-spark.html` | Case study: Spark & Heal. |
-| `project-auggy.html` | Case study: Auggy’s Shop. |
+| `project-auggy.html` | Case study: Auggy’s Store — Local AI character with persistent memory. |
 | `project-audio-meta.html` | Case study: AudioMeta. |
 | `project-podcast.html` | Case study: cMonk Podcast Studio. |
 | `project-lelit.html` | Case study: Lelit Distrikt. |
@@ -126,6 +126,38 @@ Modify the hex values in `themes.css`. The `theme-switcher.js` will automaticall
 
 ### 4. AI Agent Summary (`ai-agent.html`)
 A structured, high-aesthetic page with no top navigation. It uses a custom `.container` with unique theme-specific glassmorphic backgrounds. Accessible via the footer of every page.
+
+---
+
+## 7b. Recent Updates (April 2026)
+
+### Styleguide Consistency Pass
+Audited and standardized CSS across all 11 pages:
+- Fixed `:root` color variables and `--max-width` (1200px)
+- Added `html { scroll-behavior: smooth; }`
+- Standardized body font stack: `'Outfit', system-ui, sans-serif`
+- Updated footer CSS/HTML across all pages for consistency (3rem padding, correct opacity, SS monogram)
+- Applied `.project-header` pattern to older project pages (spark, inna, przestrzen)
+
+Files modified: `project-spark.html`, `project-inna.html`, `project-przestrzen.html`, `mentorship.html`, `WojciechHupert_Designer.html`, `designapproach.html`, `WojciechHupertAbout.html`.
+
+**North Star References:**
+- `index.html` — homepage template
+- `project-podcast.html` — project page template with `.project-header`, `.tech-architecture`, `.content-grid` patterns
+
+### Auggy's Store Project Page Rebuild
+Complete reconstruction of `project-auggy.html` with production content:
+- **Header**: Coral background, "Environment for Situated Intelligence" subtitle
+- **Sections**: Character intro, Memory system (with AI consolidation), Tech architecture (4-card grid), Voice/TTS, Roadmap (6 items)
+- **Images**: Added `auggy-game.png`, `auggy-memory.png`, `auggy-voice.png` (product screenshots)
+- **Portfolio Thumbnail**: Created `case-auggy.png` with pixel art store view
+- **CTA Button**: Changed to "Invite Me"
+
+**Key Assets Added:**
+- `case-auggy.png` — portfolio card thumbnail
+- `auggy-game.png` — full game UI view
+- `auggy-memory.png` — memory management tab
+- `auggy-voice.png` — voice settings panel
 
 ---
 
