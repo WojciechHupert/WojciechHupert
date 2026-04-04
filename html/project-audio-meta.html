@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioMeta — Shape Seeds</title>
+
+  <!-- SEO -->
+  <meta name="description" content="AudioMeta: The Sovereign Audio Intelligence Workspace. High-performance desktop environment centered on data privacy and local processing.">
+  <meta name="keywords" content="AudioMeta, Audio Intelligence, Data Privacy, Local Processing, Shape Seeds, Audio Management, AI Transcription">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wojciechhupert.github.io/project-audio-meta.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AudioMeta — Shape Seeds">
+  <meta property="og:description" content="The Sovereign Audio Intelligence Workspace. High-performance desktop environment centered on data privacy and local processing.">
+  <meta property="og:url" content="https://wojciechhupert.github.io/project-audio-meta.html">
+  <meta property="og:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Shape Seeds">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AudioMeta — Shape Seeds">
+  <meta name="twitter:description" content="The Sovereign Audio Intelligence Workspace. High-performance desktop environment centered on data privacy and local processing.">
+  <meta name="twitter:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden; transition: background-color 0.4s ease, color 0.4s ease;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: var(--indigo);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    /* HEADER */
+    .project-header {
+      padding: 12rem 3rem 6rem;
+      background: var(--violet);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 2;
+    }
+
+    .project-header > *:not(.project-video):not(.project-overlay) {
+      position: relative;
+      z-index: 3;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      color: var(--yellow);
+    }
+
+    .project-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+
+    .project-subtitle {
+      display: block;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 300;
+      margin-top: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.02em;
+    }
+
+    .project-intro {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    /* CONTENT */
+    .project-content {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 8rem;
+      align-items: flex-start;
+    }
+
+    .content-text h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--indigo);
+      line-height: 1.2;
+    }
+
+    .content-text p {
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+      font-size: 1.05rem;
+      opacity: 0.85;
+    }
+
+    .content-text ul {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .content-text li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .content-text li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
+      background: var(--violet);
+      border-radius: 50%;
+    }
+
+    .content-text li strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    /* Table Styles */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .specs-table th, .specs-table td {
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .specs-table th {
+      background: var(--indigo);
+      color: var(--yellow);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .specs-table td:first-child {
+      font-weight: 600;
+      color: var(--indigo);
+      width: 30%;
+    }
+
+    .specs-table td {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .content-image-placeholder {
+      aspect-ratio: 16/10;
+      background: var(--cream-dark);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      border: 1px dashed rgba(0,0,0,0.1);
+      position: sticky;
+      top: 6rem;
+    }
+
+    /* OTHER PROJECTS CAROUSEL */
+    .other-projects {
+      padding: 8rem 3rem;
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .playful {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--violet);
+    }
+
+    .carousel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .carousel-item {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .carousel-item:hover {
+      transform: translateY(-12px);
+    }
+
+    .carousel-thumb {
+      aspect-ratio: 16/10;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      opacity: 0.9;
+    }
+
+    .carousel-item-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--indigo);
+      margin-bottom: 0.5rem;
+    }
+
+    .carousel-item-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-logo { font-family: 'Fraunces', serif; font-weight: 700; color: rgba(255,214,0,0.4); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-header, .project-content, .other-projects { padding: 5rem 1.5rem; }
+      .project-header { padding-top: 10rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .content-image-placeholder { position: static; }
+      .carousel-grid { grid-template-columns: 1fr; }
+      .specs-table td:first-child { width: 40%; }
+    }
+
+    /* Beta Waitlist */
+    .beta-access { background: var(--violet); padding: 6rem 3rem; text-align: center; }
+    .beta-access-inner { max-width: 600px; margin: 0 auto; }
+    .beta-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+    .beta-headline { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.0; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.25rem; }
+    .beta-body { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; }
+    .beta-btn { display: inline-block; padding: 0.9rem 2rem; background: var(--yellow); color: var(--indigo); font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--yellow); transition: background 0.2s, transform 0.15s; }
+    .beta-btn:hover { background: var(--cream); border-color: var(--cream); transform: translateY(-2px); }
+    @media (max-width: 600px) { .beta-access { padding: 4rem 1.5rem; } }
+  </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="../styles/themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="../scripts/theme-switcher.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="../images/favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li><li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <video class="project-video" autoplay muted loop playsinline>
+    <source src="../videos/bg_noise.webm" type="video/webm">
+    <source src="../videos/bg_noise.mp4" type="video/mp4">
+  </video>
+  <div class="project-overlay"></div>
+  <div class="section-label">Project 04</div>
+  <h1 class="project-title">AudioMeta <span class="project-subtitle">The Sovereign Audio Intelligence Workspace</span></h1>
+  <p class="project-intro">A high-performance desktop environment centered on data privacy and local processing. Architected for professionals to manage, analyze, and interact with extensive audio libraries without compromising security.</p>
+</header>
+
+<main class="project-content">
+  <!-- SECTION 1 -->
+  <div class="content-grid">
+    <div class="content-text">
+      <h2>Digital Sovereignty and Localized Processing</h2>
+      <p>The application is built on a philosophy of total user control, ensuring that all operations remain confined to the local machine.</p>
+      <ul>
+        <li><strong>Private Infrastructure:</strong> AudioMeta operates without external subscriptions or data tracking, maintaining library integrity on the user's hardware.</li>
+        <li><strong>Intelligent Transcription:</strong> Utilizing OpenAI’s Whisper model, the system generates high-fidelity text transcripts locally.</li>
+        <li><strong>Seamless Indexing:</strong> The engine performs rapid folder-level ingestion, automatically extracting metadata and calculating library statistics.</li>
+        <li><strong>Adaptive Interface:</strong> Users can toggle between a minimalist visual grid and a high-density table view to suit specific workflows.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Local Processing Engine</div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="content-grid" style="direction: rtl;">
+    <div class="content-text" style="direction: ltr;">
+      <h2>Engineering Excellence and Technical Architecture</h2>
+      <p>The underlying stack combines modern web standards with native system integration to ensure peak performance.</p>
+      <ul>
+        <li><strong>Local Machine Learning:</strong> Employs Transformers.js to execute the Whisper model directly within the browser’s V8 engine via WebAssembly.</li>
+        <li><strong>Native macOS Integration:</strong> Utilizes a SwiftUI wrapper and a custom protocol scheme for lightning-fast asset loading.</li>
+        <li><strong>Optimized Rendering:</strong> Virtualized list rendering maintains a consistent 60FPS UI performance, even with libraries containing thousands of assets.</li>
+        <li><strong>Atomic Data Integrity:</strong> System state is managed via JSON-based persistence using atomic write operations to prevent metadata corruption.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Technical Stack Visualization</div>
+  </div>
+
+  <!-- SECTION 3 (Table) -->
+  <div class="content-grid">
+    <div class="content-text" style="grid-column: span 2;">
+      <h2>Operational Capabilities</h2>
+      <p>AudioMeta provides a comprehensive suite of tools for audio enthusiasts, researchers, and producers.</p>
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Features and Specifications</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Media Management</td>
+            <td>Support for MP3, WAV, FLAC, AAC, OGG, M4A, and WMA formats with deep metadata editing for artist, album, and custom tags.</td>
+          </tr>
+          <tr>
+            <td>Intelligence</td>
+            <td>Full-text transcript search with precise navigation and optional batch summarization via Google Gemini integration.</td>
+          </tr>
+          <tr>
+            <td>Playback Control</td>
+            <td>A persistent floating player with 15-second jump intervals, smooth progress tracking, and global keyboard shortcuts.</td>
+          </tr>
+          <tr>
+            <td>Data Portability</td>
+            <td>Support for comprehensive library state export and import via single-file archives.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="content-grid" style="margin-top: 4rem;">
+    <div class="content-text">
+      <h2>Discovery and Analytics</h2>
+      <p>The discovery engine provides real-time insights into the composition and scale of the audio collection.</p>
+      <ul>
+        <li><strong>Multi-Factor Filtering:</strong> Instant sorting by file size, duration, play count, or custom tags.</li>
+        <li><strong>Library Insights:</strong> Live visual statistics detailing total file counts, cumulative duration, and disk space utilization.</li>
+        <li><strong>Refined Search:</strong> High-speed filtering across filenames, tags, and embedded metadata categories.</li>
+      </ul>
+    </div>
+    <div class="content-image-placeholder">Analytics & Discovery Panel</div>
+  </div>
+</main>
+
+<section class="beta-access">
+  <div class="beta-access-inner">
+    <p class="beta-eyebrow">Early Access</p>
+    <h2 class="beta-headline">Now in private beta</h2>
+    <p class="beta-body">This app is currently being tested with a small, invite-only group. If you're interested in getting early access, join the waiting list — I'll reach out when a spot opens up.</p>
+    <a href="mailto:whupert@gmail.com?subject=I%20want%20to%20try%20this%20app%20AudioMeta" class="beta-btn">Give me access</a>
+  </div>
+</section>
+
+<section class="other-projects">
+  <h2 class="section-title">Explore <span class="playful">Other Projects</span></h2>
+  <div class="carousel-grid">
+    
+    <a href="project-lelit.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--indigo);">01</div>
+      <div class="carousel-item-title">Lelit Distrikt Experience</div>
+      <div class="carousel-item-desc">Interactive metaverse-style environment with intelligent NPCs.</div>
+    </a>
+
+    <a href="project-auggy.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--coral);">02</div>
+      <div class="carousel-item-title">Auggy’s Shop</div>
+      <div class="carousel-item-desc">A specialized digital space for situated intelligence modeled after a historic Brooklyn cigar shop.</div>
+    </a>
+
+    <a href="project-podcast.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--teal);">03</div>
+      <div class="carousel-item-title">cMonk Podcast Studio</div>
+      <div class="carousel-item-desc">A specialized desktop environment for professional audio capture and AI processing.</div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shape Seeds. All rights reserved.</p>
+  <span class="foot-logo">SS</span>
+</footer>
+
+</body>
+</html>

@@ -11,7 +11,8 @@
       "Bash(ls -1 /Users/cmonkx/Documents/CODE/Wojciechhupert_home/auggy-*.png)",
       "Bash(git-secrets --scan)",
       "Bash(grep -r \"api[_-]?key\\\\|secret\\\\|password\\\\|token\\\\|bearer\\\\|aws_\\\\|DATABASE_URL\" --include=*.js --include=*.jsx --include=*.ts --include=*.tsx --include=*.json --include=*.html --exclude-dir=.git --exclude-dir=node_modules)",
-      "Bash(find . -name \".DS_Store\" -type f -delete)"
+      "Bash(find . -name \".DS_Store\" -type f -delete)",
+      "Bash(python3:*)"
     ]
   }
 }
