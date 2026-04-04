@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Wojciech Hupert | Shape Seeds</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+
+  <!-- SEO -->
+  <meta name="description" content="About Wojciech Hupert: Product Designer in Berlin with 20+ years of experience in UX, UI, Branding, and AI-driven design workflows.">
+  <meta name="keywords" content="Wojciech Hupert, Product Designer Berlin, UX Design, UI Design, Shape Seeds, AI Workflow Designer">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wojciechhupert.github.io/WojciechHupertAbout.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: var(--indigo);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    /* HEADER */
+    .project-header {
+      padding: 12rem 3rem 6rem;
+      background: var(--indigo);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      color: var(--yellow);
+    }
+
+    .project-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+      max-width: 1000px;
+    }
+
+    .specialty-segment {
+      background: var(--indigo-mid);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .specialty-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+      font-weight: 300;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    .project-subtitle {
+      display: block;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 300;
+      margin-top: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.02em;
+    }
+
+    .project-intro {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      max-width: 800px;
+      line-height: 1.5;
+    }
+
+    /* CONTENT */
+    .project-content {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      margin-bottom: 8rem;
+      align-items: center;
+    }
+
+    .content-text h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--indigo);
+    }
+
+    .content-text p {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-logo { font-family: 'Fraunces', serif; font-weight: 700; color: rgba(255,214,0,0.4); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-header, .project-content { padding: 5rem 1.5rem; }
+      .project-header { padding-top: 10rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <h1 class="project-title">Shape Seeds <span style="font-weight: 300; opacity: 0.7;">by Wojciech Hupert</span></h1>
+  <p style="font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 300; color: var(--yellow); letter-spacing: 0.05em; margin-top: -1rem;">Digital Product Designer</p>
+</header>
+
+<section class="specialty-segment">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <p class="specialty-text">AI Experience Architect & Operations Designer — Specialising in Agentic Workflow UX & Recovery Design.</p>
+  </div>
+</section>
+
+<main class="project-content">
+  <div class="content-grid">
+    <img src="WojciechHupert2026.png" alt="Wojciech Hupert" class="about-photo">
+    <div class="content-text">
+      <h2>Two Decades of Craft</h2>
+      <p>With twenty years of experience in the design industry, I've seen the landscape shift from print to digital, and now toward AI and spatial computing. My journey has been driven by a constant curiosity about how humans interact with technology.</p>
+      <p>I've worked with global brands and agile startups, always focused on delivering high-quality, human-centric design that balances aesthetic beauty with functional utility.</p>
+      <p>Beyond the screen, I produce video, run a podcast, and build real-time environments in Unreal Engine. I believe the best designers are those who never stop making and exploring.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Shape Seeds. All rights reserved.</p>
+  <span class="foot-logo">SS</span>
+</footer>
+
+</body>
+</html>

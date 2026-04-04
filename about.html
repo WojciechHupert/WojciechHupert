@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Shape Seeds — AI Experience Architect & Operations Designer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- SEO -->
+  <meta name="description" content="Operations Architect specializing in agentic workflow UX and AI Experience Debt remediation. 15+ years across fintech, Web3, and SaaS. Berlin.">
+  <meta name="keywords" content="AI Experience Architect, Product Designer Berlin, Operations Designer, UX Design, AI Workflow, Shape Seeds">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* THEME TRANSITIONS */
+    nav, section, div, span, p, h1, h2, h3, a, .skill-chip, .exp-item, .deliverable-card {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease, transform 0.3s ease;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(28, 20, 73, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-icon {
+      width: 28px; height: 28px; object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--yellow); }
+
+    /* HEADER */
+    .about-header {
+      padding: 12rem 3rem 6rem;
+      background: var(--indigo);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--yellow);
+      display: block;
+    }
+
+    .about-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      max-width: 1000px;
+    }
+
+    .specialty-segment {
+      background: var(--indigo-mid);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .specialty-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+      font-weight: 300;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    /* CONTENT SECTIONS */
+    section { padding: 8rem 3rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .about-photo img {
+        width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .about-photo__badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--indigo);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .status-dot {
+      width: 8px; height: 8px; background: var(--teal); border-radius: 50%;
+    }
+
+    .about-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--indigo);
+      line-height: 1.2;
+    }
+
+    .about-content p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      opacity: 0.85;
+    }
+
+    /* INFO LIST */
+    .info-list {
+      margin: 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 2rem;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      font-size: 0.95rem;
+    }
+
+    .info-item strong {
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2.5rem;
+    }
+
+    .skill-chip {
+      padding: 0.4rem 1rem;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--indigo);
+      color: var(--indigo);
+      transform: translateY(-2px);
+    }
+
+    /* EXPERIENCE & EDUCATION */
+    .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .experience-list, .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      width: 100%;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .exp-content h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: var(--indigo);
+    }
+
+    .exp-company {
+      font-size: 0.9rem;
+      color: var(--coral);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .exp-desc {
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      opacity: 0.8;
+      max-width: 100%;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 4rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-logo { font-family: 'Fraunces', serif; font-weight: 700; color: rgba(255,214,0,0.4); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .about-header, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .info-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+  </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="about-header">
+  <div class="header-content">
+    <h1 class="about-title" style="margin-bottom: 0.5rem;">Shape Seeds <span style="font-weight: 300; opacity: 0.7;">by Wojciech Hupert</span></h1>
+    <p style="font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 300; color: var(--yellow); letter-spacing: 0.05em;">Digital Product Designer</p>
+  </div>
+</header>
+
+<section class="specialty-segment">
+  <div class="container">
+    <p class="specialty-text">AI Experience Architect & Operations Designer — Specialising in Agentic Workflow UX & Recovery Design.</p>
+  </div>
+</section>
+
+<main>
+  <!-- INTRO -->
+  <section>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap">
+          <div class="about-photo">
+            <img src="WojciechHupert2026.png" alt="Wojciech Hupert">
+          </div>
+          <div class="about-photo__badge">
+            <span class="status-dot"></span>
+            Accepting new projects
+          </div>
+        </div>
+        <div class="about-content">
+            <p>Operations Architect and AI Experience Designer with over 15 years building digital products across fintech, Web3, media, and SaaS. Based in Berlin, I specialise in auditing agentic workflows, remediating AI Experience Debt, and designing the guardrails that turn functional tools into retention engines.</p>
+            <p>My track record includes leading the evolution of complex products like Podigee and Wealth Management SaaS at FNZ — cutting support escalations by 40% and reducing onboarding drop-off by 25% across enterprise workflows.</p>
+            <p>I focus on the moments AI-first products fail silently: dead-end loops, hallucination recovery, and the invisible friction that drives users to competitors before they ever file a ticket.</p>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <strong>Based</strong>
+                    <span>Berlin, Germany</span>
+                </div>
+                <div class="info-item">
+                    <strong>Experience</strong>
+                    <span>15+ years in product & UX design</span>
+                </div>
+                <div class="info-item">
+                    <strong>Languages</strong>
+                    <span>English (Fluent), Polish (Native), German (Elementary)</span>
+                </div>
+                <div class="info-item">
+                    <strong>CV</strong>
+                    <span>
+                        <a href="Wojciech_Hupert_CV_2026.pdf" target="_blank" style="color:var(--coral); font-weight:600; text-decoration:none;">Download CV (PDF) ↓</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="skills-grid">
+                <span class="skill-chip">Design Systems Architecture</span>
+                <span class="skill-chip">Product Design for SaaS</span>
+                <span class="skill-chip">AI-Enhanced Design Workflows</span>
+                <span class="skill-chip">User Research & Usability Testing</span>
+                <span class="skill-chip">Rapid Prototyping</span>
+                <span class="skill-chip">Figma</span>
+                <span class="skill-chip">HTML, CSS & JS</span>
+                <span class="skill-chip">Web3 & Blockchain UX</span>
+                <span class="skill-chip">Monetization Workflow UX</span>
+                <span class="skill-chip">Analytics & Data Viz</span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section style="background: var(--cream-dark);" class="experience-section">
+    <div class="container" style="max-width: 100%; padding: 0 6rem;">
+        <div class="section-header">
+            <span class="section-label" style="color: var(--muted);">History</span>
+            <h2 class="about-title" style="color: var(--indigo);">Experience</h2>
+        </div>
+
+        <div class="experience-list">
+            <div class="exp-item">
+                <div class="exp-date">Nov 2023 — Present</div>
+                <div class="exp-content">
+                    <h3>Senior Product Designer</h3>
+                    <span class="exp-company">Podigee · Berlin, Germany</span>
+                    <p class="exp-desc">Modernizing the product experience for a leading podcast hosting and analytics platform. Leading the evolution of the Podigee design system for scalability, optimizing monetization workflows, and integrating AI-driven content features.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">Oct 2022 — Aug 2023</div>
+                <div class="exp-content">
+                    <h3>User Experience Designer</h3>
+                    <span class="exp-company">FNZ Group · Dublin / Remote</span>
+                    <p class="exp-desc">Designed core wealth management modules for a global SaaS platform. Led the redesign of the electronic identity verification (ID&V) experience, drastically reducing compliance friction and user drop-off across global banking institutions.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">July 2015 — May 2018</div>
+                <div class="exp-content">
+                    <h3>UX/UI Designer</h3>
+                    <span class="exp-company">scribe / BigchainDB / Ocean Protocol / IPDB · Berlin, Germany</span>
+                    <p class="exp-desc">Early team member for pioneering blockchain and Web3 projects. Simplified decentralized data marketplaces and digital ownership concepts through intuitive UI. Built comprehensive brand guidelines and design systems for multiple scaling organizations.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">June 2014 — Oct 2021</div>
+                <div class="exp-content">
+                    <h3>UX/UI Design Mentor</h3>
+                    <span class="exp-company">CareerFoundry · Remote</span>
+                    <p class="exp-desc">Mentored global students through a career-transition design bootcamp, guiding them in building professional portfolios and transitioning into the design industry.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">June 2014 — Oct 2021</div>
+                <div class="exp-content">
+                    <h3>UX/UI Designer</h3>
+                    <span class="exp-company">Jobspotting · Berlin, Germany</span>
+                    <p class="exp-desc">Iterated on web application interfaces and created the company’s first comprehensive visual style guide and design system for a personalized job search engine.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">2005 — 2013</div>
+                <div class="exp-content">
+                    <h3>DTP Manager & Graphic Designer</h3>
+                    <span class="exp-company">Various Agencies · Dublin / Madrid</span>
+                    <p class="exp-desc">Early career foundation in publishing and graphic design. Led DTP and design teams at Messenger Publications, Tek Translations, Eurotext, and ICON Clinical Research.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <p>© 2026 Shape Seeds. All rights reserved. <a href="ai-agent.html" style="color: rgba(255,255,255,0.2); text-decoration: none; margin-left: 1.5rem; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.1em; transition: opacity 0.3s;">[ AI Summary ]</a></p>
+  <span class="foot-logo">SS</span>
+</footer>
+
+</body>
+</html>

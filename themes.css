@@ -1,0 +1,136 @@
+/* 
+  Shape Seeds — Theme Definitions
+  This file redefines core CSS variables for 6 distinct themes.
+  The theme is applied by setting [data-theme] on the <html> element.
+*/
+
+:root {
+  /* Default Transitions */
+  --theme-transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease, stroke 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+}
+
+body {
+  transition: var(--theme-transition);
+}
+
+nav, section, div, span, p, h1, h2, h3, a, .tag, .btn-primary, .btn-outline, .project-card, .service-card {
+  transition: var(--theme-transition);
+}
+
+/* 1. ORIGINAL (SUNFLOWER) - The default brand theme */
+[data-theme="original"] {
+  --yellow:      #FFD600;
+  --indigo:      #1C1449;
+  --indigo-mid:  #2D2260;
+  --coral:       #FF5638;
+  --teal:        #00C49A;
+  --violet:      #7C3AED;
+  --lime:        #84CC16;
+  --cream:       #F8F4EC;
+  --cream-dark:  #EEE9DE;
+  --white:       #FFFFFF;
+  --charcoal:    #1A1A1A;
+  --muted:       #888070;
+}
+
+/* 2. MIDNIGHT (CYBER) - High contrast, neon dark mode */
+[data-theme="cyber"] {
+  --yellow:      #00F0FF; /* Neon Cyan */
+  --indigo:      #0A0A0F; /* Deepest Black */
+  --indigo-mid:  #14141F; /* Dark Indigo-Grey */
+  --coral:       #FF007A; /* Magenta */
+  --teal:        #00FF94; /* Lime-Green Neon */
+  --violet:      #BD00FF; /* Purple Neon */
+  --lime:        #CCFF00; /* Electric Lime */
+  --cream:       #020205; /* Black Background */
+  --cream-dark:  #000000;
+  --white:       #FFFFFF;
+  --charcoal:    #F0F0F0; /* Light text for dark bg */
+  --muted:       #666666;
+}
+
+/* 3. EARTH (FOREST) - Organic, calming, earthy tones */
+[data-theme="earth"] {
+  --yellow:      #E6D5B8; /* Sand */
+  --indigo:      #1B3022; /* Deep Forest Green */
+  --indigo-mid:  #2C4A3E; /* Moss Green */
+  --coral:       #A34A28; /* Terracotta */
+  --teal:        #4B6B56; /* Sage */
+  --violet:      #6B4B5E; /* Muted Plum */
+  --lime:        #849669; /* Fern */
+  --cream:       #F2EFE9; /* Warm Off-white */
+  --cream-dark:  #E5E0D5;
+  --white:       #FFFFFF;
+  --charcoal:    #1B1B1B;
+  --muted:       #7A7A7A;
+}
+
+/* 4. SUNSET (VIBE) - Warm, energetic, golden hour */
+[data-theme="sunset"] {
+  --yellow:      #FF9E00; /* Amber */
+  --indigo:      #240046; /* Deep Violet */
+  --indigo-mid:  #3C096C; /* Royal Purple */
+  --coral:       #FF5400; /* Blood Orange */
+  --teal:        #FF0054; /* Pinkish-Red */
+  --violet:      #9D4EDD; /* Lavender */
+  --lime:        #5A189A; /* Darker Violet */
+  --cream:       #FFF3E0; /* Sunset Cream */
+  --cream-dark:  #FFE0B2;
+  --white:       #FFFFFF;
+  --charcoal:    #1C1C1C;
+  --muted:       #8D8D8D;
+}
+
+/* 5. ARCTIC (BREEZE) - Clean, cool, professional blues */
+[data-theme="arctic"] {
+  --yellow:      #48CAE4; /* Sky Blue */
+  --indigo:      #03045E; /* Navy Blue */
+  --indigo-mid:  #023E8A; /* Ocean Blue */
+  --coral:       #0077B6; /* Deep Cyan */
+  --teal:        #00B4D8; /* Turquoise */
+  --violet:      #90E0EF; /* Ice Blue */
+  --lime:        #CAF0F8; /* Pale Blue */
+  --cream:       #F0F8FF; /* Airy White */
+  --cream-dark:  #E0F2FE;
+  --white:       #FFFFFF;
+  --charcoal:    #011627;
+  --muted:       #707070;
+}
+
+/* 6. SLATE (NORDIC) - Minimal, monochrome, archival */
+[data-theme="slate"] {
+  --yellow:      #E0E0E0; /* Lightest Grey */
+  --indigo:      #000000; /* Pure Black */
+  --indigo-mid:  #1A1A1A; /* Charcoal */
+  --coral:       #333333; /* Dark Grey */
+  --teal:        #4D4D4D; /* Grey */
+  --violet:      #666666; /* Muted Grey */
+  --lime:        #999999; /* Soft Grey */
+  --cream:       #FFFFFF; /* White Background */
+  --cream-dark:  #F5F5F5;
+  --white:       #FFFFFF;
+  --charcoal:    #000000;
+  --muted:       #999999;
+}
+
+/* Custom UI adjustments per theme */
+[data-theme="cyber"] .hero-overlay,
+[data-theme="cyber"] .contact::before {
+    background: rgba(5, 5, 10, 0.9);
+}
+
+[data-theme="cyber"] .nav-links a {
+    color: rgba(0, 240, 255, 0.6);
+}
+
+[data-theme="cyber"] .nav-links a:hover,
+[data-theme="cyber"] .nav-links a.active {
+    color: var(--yellow);
+}
+
+/* Handle video filters to match theme tone */
+[data-theme="cyber"] video { filter: hue-rotate(180deg) brightness(0.6) contrast(1.2); }
+[data-theme="earth"] video { filter: sepia(0.5) hue-rotate(30deg) brightness(0.9); }
+[data-theme="sunset"] video { filter: hue-rotate(-20deg) saturate(1.5) brightness(0.8); }
+[data-theme="arctic"] video { filter: hue-rotate(160deg) brightness(1.1); }
+[data-theme="slate"] video { filter: grayscale(1) brightness(0.8); }

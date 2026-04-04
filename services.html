@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Shape Seeds — AI Experience Design & Agentic Logic Audits</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- SEO -->
+  <meta name="description" content="AI Experience Design services: Agentic Logic Audits, UX/UI for AI workflows, and Experience Debt remediation. Operations Architecture for teams shipping AI products.">
+  <meta name="keywords" content="AI Experience Design, Agentic Logic Audit, UX Design Berlin, AI Workflow, Shape Seeds, Product Strategy">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* THEME TRANSITIONS */
+    nav, section, div, span, p, h1, h2, h3, a, .service-card, .deliverable-card {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease, transform 0.3s ease;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 4.5rem;
+      background: rgba(28, 20, 73, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .nav-logo-icon {
+      width: 32px; height: 32px; object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--yellow); }
+
+    /* HEADER */
+    .services-header {
+      padding: 12rem 4.5rem 6rem;
+      background: var(--indigo);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--yellow);
+      display: block;
+    }
+
+    .services-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      max-width: 900px;
+    }
+
+    .services-intro {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* SPECIALTY SECTION */
+    .specialty {
+      background: var(--indigo-mid);
+      color: var(--white);
+      padding: 5rem 4.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .specialty-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .specialty-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+      font-weight: 300;
+      line-height: 1.4;
+      opacity: 0.95;
+    }
+
+    /* SERVICE SECTIONS */
+    section { padding: 8rem 4.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 6rem;
+      margin-bottom: 8rem;
+    }
+
+    .service-block:last-child { margin-bottom: 0; }
+
+    .service-main h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 0.5rem;
+      color: var(--indigo);
+      line-height: 1.1;
+    }
+
+    .service-tagline {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: var(--coral);
+      margin-bottom: 2.5rem;
+    }
+
+    .service-description h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    .service-description p {
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+    }
+
+    /* SIDEBAR INFO */
+    .service-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .sidebar-group h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding-bottom: 0.75rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .sidebar-list li {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .sidebar-list strong {
+      color: var(--indigo);
+      flex-shrink: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* DELIVERABLES */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .deliverable-card {
+      background: var(--white);
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 4px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .deliverable-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--yellow);
+    }
+
+    .deliverable-card span {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: rgba(0, 196, 154, 0.1);
+      color: var(--teal);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .deliverable-card h5 {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--indigo);
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--yellow);
+      text-align: center;
+      padding: 10rem 4.5rem;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--indigo);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-lead {
+      font-size: 1.25rem;
+      color: rgba(28,20,73,0.7);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .btn-primary {
+      padding: 1.2rem 2.5rem;
+      background: var(--indigo);
+      color: var(--yellow);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.02);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 4rem 4.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-logo { font-family: 'Fraunces', serif; font-weight: 700; color: rgba(255,214,0,0.4); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .service-block { grid-template-columns: 1fr; gap: 4rem; }
+      .specialty-container { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .services-header, .specialty, section, .cta-section, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
+  </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="services-header">
+  <div class="header-content">
+    <span class="section-label">Our Expertise</span>
+    <h1 class="services-title">AI Experience Design & <span style="font-weight: 300; opacity: 0.7;">Agentic Logic Audits</span></h1>
+    <p class="services-intro">I audit, map, and fix the AI Experience Debt quietly eroding your product's retention. Every engagement starts with an operational diagnosis — not a mood board.</p>
+  </div>
+</header>
+
+<section class="specialty">
+  <div class="specialty-container">
+    <p class="specialty-text">AI Experience Architecture for teams that optimize retention, not just release velocity.</p>
+    <div style="text-align: right;">
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Based in Berlin &middot; Working Globally</p>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ENGAGEMENT 01 -->
+  <section id="ux-ui">
+    <div class="container">
+      <div class="service-block">
+        <div class="service-main">
+          <span class="section-label" style="color: var(--teal);">Engagement 01</span>
+          <h2>Design & UX/UI</h2>
+          <p class="service-tagline">Design that works, not just looks.</p>
+          
+          <div class="service-description">
+            <h3>Our Approach</h3>
+            <p>User experience and interface design that serves real people—researched, tested, refined, and built for accessibility. Built for how people actually behave.</p>
+            <p>We create interfaces and experiences that work—not just look impressive in portfolios. User research and usability testing inform every decision; together with information architecture, interaction design, and visual design—built for the people using it and optimized for how they actually behave.</p>
+            <p>We start with understanding users—their goals, their context, their frustrations. Research informs information architecture. IA informs interaction design. Everything serves the user's ability to accomplish their goals.</p>
+          </div>
+
+          <div class="deliverables-section" style="margin-top: 4rem;">
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2rem; font-weight: 700;">What You Get (Deliverables)</h4>
+            <div class="deliverables-grid">
+              <div class="deliverable-card"><span>✔</span><h5>User research findings</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>IA documentation</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Wireframes & user flows</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Interactive prototypes</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Figma Interface Designs</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Design system components</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Accessibility docs</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Analytics insights</h5></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="sidebar-group" style="background: var(--white); padding: 2.5rem; border-radius: 4px; border-left: 4px solid var(--teal);">
+            <h4>When You Need This</h4>
+            <ul class="sidebar-list">
+              <li><strong>01.</strong> <span><strong>User Frustration:</strong> Your current experience frustrates users and costs conversions.</span></li>
+              <li><strong>02.</strong> <span><strong>Dated Interface:</strong> Your interface feels dated, generic, or fails to reflect your brand.</span></li>
+              <li><strong>03.</strong> <span><strong>Accessibility Required:</strong> Compliant design serves everyone and meets legal standards.</span></li>
+              <li><strong>04.</strong> <span><strong>Complex Problems:</strong> You’re building something complex that needs strong UX foundation.</span></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-group">
+            <h4>What This Includes</h4>
+            <ul class="sidebar-list" style="gap: 1.5rem;">
+              <li><strong>User Research:</strong> Understanding the people who will use what we build through interviews, testing, and audits.</li>
+              <li><strong>Information Architecture:</strong> Organizing content and structures so users can find what they need intuitively.</li>
+              <li><strong>Interaction Design:</strong> Designing wireframes, prototypes, and motion that define how users interact.</li>
+              <li><strong>Visual Design:</strong> Creating high-fidelity interfaces and component libraries that communicate and delight.</li>
+              <li><strong>Accessibility:</strong> Ensuring WCAG compliance, screen reader optimization, and universal usability.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT 02 -->
+  <section id="brand" style="background: var(--cream-dark);">
+    <div class="container">
+      <div class="service-block">
+        <div class="service-main">
+          <span class="section-label" style="color: var(--coral);">Engagement 02</span>
+          <h2>Brand & Identity</h2>
+          <p class="service-tagline">Visual systems that elevate your organization.</p>
+          
+          <div class="service-description">
+            <h3>Our Approach</h3>
+            <p>Brand strategy, visual identity, and design systems that connect with your audience authentically while elevating your presence. We don't just make things look good. Your brand is how people experience your organization.</p>
+            <p>We create visual systems and brand experiences that reflect who you are and resonate with who you serve—built on strategy, executed with craft. Brand work starts with strategy: understanding your organization, your audience, and what makes you distinct.</p>
+            <p>Then we create visual systems that express that strategy with craft and intention, ensuring consistency across every digital and physical touchpoint.</p>
+          </div>
+
+          <div class="deliverables-section" style="margin-top: 4rem;">
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2rem; font-weight: 700;">What You Get (Deliverables)</h4>
+            <div class="deliverables-grid">
+              <div class="deliverable-card"><span>✔</span><h5>Brand strategy doc</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Visual identity system</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Logo design & marks</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Design system components</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Brand guidelines</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Application templates</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Usage documentation</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Visual style guide</h5></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="sidebar-group" style="background: var(--white); padding: 2.5rem; border-radius: 4px; border-left: 4px solid var(--coral);">
+            <h4>When You Need This</h4>
+            <ul class="sidebar-list">
+              <li><strong>01.</strong> <span><strong>Identity Mismatch:</strong> Your visual identity doesn't reflect who you've become as a company.</span></li>
+              <li><strong>02.</strong> <span><strong>Inconsistency:</strong> You lack consistency across different touchpoints, platforms, and channels.</span></li>
+              <li><strong>03.</strong> <span><strong>New Launch:</strong> You’re launching a new product or brand and need a strong foundation.</span></li>
+              <li><strong>04.</strong> <span><strong>Dated or Generic:</strong> Your brand feels generic, dated, or fails to stand out in the market.</span></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-group">
+            <h4>What This Includes</h4>
+            <ul class="sidebar-list" style="gap: 1.5rem;">
+              <li><strong>Brand Strategy:</strong> Defining positioning, messaging, and audience research to inform the visual language.</li>
+              <li><strong>Visual Identity:</strong> Logo design, color systems, typography, and photography direction.</li>
+              <li><strong>Design Systems:</strong> Component libraries and pattern documentation for scalable implementation.</li>
+              <li><strong>Brand Applications:</strong> Marketing materials, digital templates, and environmental graphics.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT 03 -->
+  <section id="strategy">
+    <div class="container">
+      <div class="service-block">
+        <div class="service-main">
+          <span class="section-label" style="color: var(--violet);">Engagement 03</span>
+          <h2>Strategy & Consulting</h2>
+          <p class="service-tagline">Understanding the problem before building the solution.</p>
+          
+          <div class="service-description">
+            <h3>Our Approach</h3>
+            <p>Research, stakeholder alignment, and strategic planning to ensure we build the right thing—not just things. We don't jump straight to wireframes.</p>
+            <p>We start by understanding your organization, your users, and the actual problems we're solving. Strategy isn't about having all the answers—it's about asking the right questions. Every engagement begins with discovery. Building the wrong thing fast is still building the wrong thing.</p>
+          </div>
+
+          <div class="deliverables-section" style="margin-top: 4rem;">
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2rem; font-weight: 700;">What You Get (Deliverables)</h4>
+            <div class="deliverables-grid">
+              <div class="deliverable-card"><span>✔</span><h5>Research findings</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Strategic roadmap</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>User personas & journeys</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>IA structure</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Technical requirements</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Implementation plan</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Success metrics framework</h5></div>
+              <div class="deliverable-card"><span>✔</span><h5>Stakeholder alignment recap</h5></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="sidebar-group" style="background: var(--white); padding: 2.5rem; border-radius: 4px; border-left: 4px solid var(--violet);">
+            <h4>When You Need This</h4>
+            <ul class="sidebar-list">
+              <li><strong>01.</strong> <span><strong>Unclear Direction:</strong> You’re not sure what to build or where to start with your project.</span></li>
+              <li><strong>02.</strong> <span><strong>Stakeholder Misalignment:</strong> Different teams have conflicting visions for the product.</span></li>
+              <li><strong>03.</strong> <span><strong>Complex Requirements:</strong> The project involves multiple systems, user types, or data sources.</span></li>
+              <li><strong>04.</strong> <span><strong>Past Failures:</strong> Previous design or product iterations haven’t delivered expected results.</span></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-group">
+            <h4>What This Includes</h4>
+            <ul class="sidebar-list" style="gap: 1.5rem;">
+              <li><strong>Discovery & Research:</strong> Interviews, workshops, competitive analysis, and technical assessment.</li>
+              <li><strong>Strategic Planning:</strong> IA planning, implementation roadmaps, and success metrics definition.</li>
+              <li><strong>Stakeholder Alignment:</strong> Cross-functional workshops and requirements prioritization.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <span class="section-label">Start Here</span>
+      <h2 class="cta-title">Get an Agentic Logic Audit</h2>
+      <p class="cta-lead">Before you build more features, let's diagnose what's silently breaking. A 15-minute teardown reveals the experience debt costing you users.</p>
+      <a href="mailto:whupert@gmail.com" class="btn-primary">Book Your Audit</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Shape Seeds. All rights reserved. <a href="ai-agent.html" style="color: rgba(255,255,255,0.2); text-decoration: none; margin-left: 1.5rem; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.1em; transition: opacity 0.3s;">[ AI Summary ]</a></p>
+  <span class="foot-logo">SS</span>
+</footer>
+
+</body>
+</html>

@@ -3,31 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lelit Distrikt Experience — Shape Seeds</title>
+  <title>Przestrzen — 3D Spatial Design | Shape Seeds</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 
   <!-- SEO -->
-  <meta name="description" content="Lelit Distrikt Experience: Interactive metaverse-style environment with intelligent NPCs. Platform for storytelling, education, and entertainment.">
-  <meta name="keywords" content="Lelit Distrikt, Metaverse, AI NPCs, Unreal Engine, Shape Seeds, Interactive Experience, 3D Modeling, Virtual Reality">
+  <meta name="description" content="Przestrzen: Exploring the intersection of 3D spatial design, architecture, and interactive environments. Virtual worlds built with Unreal Engine.">
+  <meta name="keywords" content="Przestrzen, 3D Design, Spatial Computing, Unreal Engine, Virtual Architecture, Shape Seeds, Metaverse">
   <meta name="author" content="Shape Seeds">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://wojciechhupert.github.io/project-lelit.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Lelit Distrikt Experience — Shape Seeds">
-  <meta property="og:description" content="Interactive metaverse-style environment with intelligent NPCs. Platform for storytelling, education, and entertainment.">
-  <meta property="og:url" content="https://wojciechhupert.github.io/project-lelit.html">
-  <meta property="og:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="Shape Seeds">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lelit Distrikt Experience — Shape Seeds">
-  <meta name="twitter:description" content="Interactive metaverse-style environment with intelligent NPCs. Platform for storytelling, education, and entertainment.">
-  <meta name="twitter:image" content="https://wojciechhupert.github.io/WojciechHupert2026.png">
+  <link rel="canonical" href="https://wojciechhupert.github.io/project-przestrzen.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,8 +96,8 @@
     /* HEADER */
     .project-header {
       padding: 12rem 3rem 6rem;
-      background: var(--indigo);
-      color: var(--white);
+      background: var(--lime);
+      color: var(--indigo);
       position: relative;
       overflow: hidden;
     }
@@ -133,7 +118,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(132, 204, 22, 0.4);
       z-index: 2;
     }
 
@@ -148,7 +133,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 0.85rem;
-      color: var(--yellow);
+      color: var(--indigo);
     }
 
     .project-title {
@@ -165,14 +150,14 @@
       font-size: clamp(1.2rem, 3vw, 2rem);
       font-weight: 300;
       margin-top: 0.75rem;
-      color: rgba(255,255,255,0.7);
+      color: rgba(28, 20, 73, 0.7);
       letter-spacing: 0.02em;
     }
 
     .project-intro {
       font-size: clamp(1.1rem, 2vw, 1.4rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.7);
+      color: rgba(28, 20, 73, 0.8);
       max-width: 800px;
       line-height: 1.5;
     }
@@ -220,6 +205,13 @@
       border: 1px dashed rgba(0,0,0,0.1);
     }
 
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
     /* OTHER PROJECTS CAROUSEL */
     .other-projects {
       padding: 8rem 3rem;
@@ -238,7 +230,7 @@
     .playful {
       font-style: italic;
       font-weight: 300;
-      color: var(--coral);
+      color: var(--lime);
     }
 
     .carousel-grid {
@@ -306,16 +298,6 @@
       .content-grid { grid-template-columns: 1fr; gap: 3rem; }
       .carousel-grid { grid-template-columns: 1fr; }
     }
-
-    /* Beta Waitlist */
-    .beta-access { background: var(--indigo); padding: 6rem 3rem; text-align: center; }
-    .beta-access-inner { max-width: 600px; margin: 0 auto; }
-    .beta-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,214,0,0.6); margin-bottom: 1rem; }
-    .beta-headline { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.0; letter-spacing: -0.03em; color: var(--yellow); margin-bottom: 1.25rem; }
-    .beta-body { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; }
-    .beta-btn { display: inline-block; padding: 0.9rem 2rem; background: var(--yellow); color: var(--indigo); font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--yellow); transition: background 0.2s, transform 0.15s; }
-    .beta-btn:hover { background: var(--cream); border-color: var(--cream); transform: translateY(-2px); }
-    @media (max-width: 600px) { .beta-access { padding: 4rem 1.5rem; } }
   </style>
 
   <!-- Theme Support -->
@@ -345,60 +327,51 @@
     <source src="bg_noise.mp4" type="video/mp4">
   </video>
   <div class="project-overlay"></div>
-  <div class="section-label">Project 01</div>
-  <h1 class="project-title">Lelit Distrikt <span class="project-subtitle">Experience</span></h1>
-  <p class="project-intro">Interactive metaverse-style environment with intelligent NPCs. Platform for storytelling, education and entertainment.</p>
+  <div class="section-label">Spatial Design</div>
+  <h1 class="project-title">Przestrzen <span class="project-subtitle">Virtual Worlds</span></h1>
+  <p class="project-intro">Redefining digital architecture through immersive 3D environments, real-time rendering, and spatial storytelling in Unreal Engine.</p>
 </header>
 
 <main class="project-content">
   <div class="content-grid">
     <div class="content-text">
-      <h2>The Concept</h2>
-      <p>Lelit Distrikt is a visionary exploration into the future of interactive digital spaces. It combines high-fidelity 3D environments with advanced AI to create a living, breathing world where users can engage in meaningful ways.</p>
-      <p>Designed as a multi-purpose platform, it serves as a stage for storytelling, an immersive classroom for education, and a vibrant hub for entertainment.</p>
+      <h2>Digital Architecture</h2>
+      <p>Przestrzen is an exploration of how we occupy digital space. By moving beyond 2D interfaces, we can create environments that feel grounded, atmospheric, and reactive.</p>
+      <p>Using Unreal Engine 5, I build spaces that combine architectural principles with the freedom of virtual exploration.</p>
     </div>
-    <div class="content-image-placeholder">Unreal Engine Environment Render</div>
+    <img src="case-przestrzen.png" alt="Przestrzen Spatial Design" class="product-image">
   </div>
 
   <div class="content-grid" style="direction: rtl;">
     <div class="content-text" style="direction: ltr;">
-      <h2>Intelligent NPCs</h2>
-      <p>The core of the experience lies in its intelligent inhabitants. Powered by custom-integrated AI models, NPCs in Lelit Distrikt possess extensive reasoning capabilities and memory, allowing for dynamic, unscripted interactions.</p>
-      <p>Users can converse with these characters via text or voice, making the world feel reactive and truly alive.</p>
+      <h2>Atmospheric Immersion</h2>
+      <p>Lighting, texture, and sound design come together to create a sense of presence. Each environment is a study in mood and interaction, designed to be experienced rather than just viewed.</p>
+      <p>Whether for storytelling, virtual events, or creative hubs, these spaces represent the next frontier of digital interaction.</p>
     </div>
-    <div class="content-image-placeholder">AI Interaction Interface</div>
+    <div class="content-image-placeholder">UE5 Rendering Visualization</div>
   </div>
 </main>
-
-<section class="beta-access">
-  <div class="beta-access-inner">
-    <p class="beta-eyebrow">Early Access</p>
-    <h2 class="beta-headline">Now in private beta</h2>
-    <p class="beta-body">This app is currently being tested with a small, invite-only group. If you're interested in getting early access, join the waiting list — I'll reach out when a spot opens up.</p>
-    <a href="mailto:whupert@gmail.com?subject=I%20want%20to%20try%20this%20app%20Lelit%20Distrikt%20Experience" class="beta-btn">Give me access</a>
-  </div>
-</section>
 
 <section class="other-projects">
   <h2 class="section-title">Explore <span class="playful">Other Projects</span></h2>
   <div class="carousel-grid">
     
-    <a href="project-auggy.html" class="carousel-item">
-      <div class="carousel-thumb" style="background: var(--coral);">02</div>
-      <div class="carousel-item-title">Auggy’s Shop</div>
-      <div class="carousel-item-desc">A specialized digital space for situated intelligence modeled after a historic Brooklyn cigar shop.</div>
+    <a href="project-lelit.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--indigo);">01</div>
+      <div class="carousel-item-title">Lelit Distrikt Experience</div>
+      <div class="carousel-item-desc">Interactive metaverse-style environment.</div>
+    </a>
+
+    <a href="project-inna.html" class="carousel-item">
+      <div class="carousel-thumb" style="background: var(--violet);">02</div>
+      <div class="carousel-item-title">Inna AI</div>
+      <div class="carousel-item-desc">A sophisticated AI persona experience.</div>
     </a>
 
     <a href="project-podcast.html" class="carousel-item">
       <div class="carousel-thumb" style="background: var(--teal);">03</div>
       <div class="carousel-item-title">cMonk Podcast Studio</div>
-      <div class="carousel-item-desc">A specialized desktop environment for professional audio capture and AI processing.</div>
-    </a>
-
-    <a href="project-audio-meta.html" class="carousel-item">
-      <div class="carousel-thumb" style="background: var(--violet);">04</div>
-      <div class="carousel-item-title">AudioMeta</div>
-      <div class="carousel-item-desc">Sophisticated AI-driven audio media management and local transcription system.</div>
+      <div class="carousel-item-desc">Professional audio capture environment.</div>
     </a>
 
   </div>

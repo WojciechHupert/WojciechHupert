@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wojciech Hupert — AI Agent Summary | Shape Seeds</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- SEO -->
+  <meta name="description" content="A structured summary for AI agents and automated systems about Wojciech Hupert (Shape Seeds), a Product Designer in Berlin.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --cream:       #F8F4EC;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="original"] .container { background: rgba(255, 255, 255, 0.8); border-color: rgba(28, 20, 73, 0.1); }
+    [data-theme="cyber"] .container    { background: rgba(0, 0, 0, 0.6);   border-color: rgba(0, 255, 255, 0.2); }
+    [data-theme="earth"] .container    { background: rgba(244, 241, 230, 0.85); border-color: rgba(60, 80, 60, 0.15); }
+    [data-theme="sunset"] .container   { background: rgba(255, 245, 230, 0.8); border-color: rgba(255, 86, 56, 0.15); }
+    [data-theme="arctic"] .container   { background: rgba(240, 245, 250, 0.85); border-color: rgba(50, 100, 150, 0.15); }
+    [data-theme="slate"] .container    { background: rgba(245, 245, 245, 0.9);  border-color: rgba(0, 0, 0, 0.1); }
+
+    .back-btn {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      text-decoration: none;
+      color: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 10;
+    }
+
+    .back-btn:hover {
+      opacity: 1;
+      transform: translateX(-4px);
+    }
+
+    header {
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+
+    .label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted, #888);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      align-items: baseline;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      opacity: 0.4;
+      font-style: italic;
+    }
+
+    .section-content {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .section-content strong {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+    }
+
+    [data-theme="original"] .tag { border-color: rgba(28,20,73,0.1); }
+    [data-theme="cyber"] .tag    { border-color: rgba(0, 255, 255, 0.4); color: #0FF; }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(128,128,128,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .foot-text {
+      font-size: 0.7rem;
+      opacity: 0.4;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 4rem 2rem 2rem; }
+      .section { grid-template-columns: 1fr; gap: 0.5rem; }
+      .section-title { margin-bottom: 0.25rem; }
+      .back-btn { top: 1.5rem; left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="bg_noise.webm" type="video/webm">
+    <source src="bg_noise.mp4" type="video/mp4">
+  </video>
+
+  <main class="container">
+    <a href="index.html" class="back-btn" onclick="if(window.history.length > 1) { event.preventDefault(); window.history.back(); }">
+      ← Go Back
+    </a>
+
+    <header>
+      <span class="label">System Identity Summary v1.0</span>
+      <h1>Wojciech Hupert</h1>
+      <p style="opacity: 0.6; font-size: 0.9rem;">Product Designer &amp; Creative Technologist</p>
+    </header>
+
+    <div class="summary-grid">
+      <div class="section">
+        <span class="section-title">Who I am</span>
+        <div class="section-content">
+          <strong>A Berlin-based multi-disciplinary designer with 20+ years of professional experience.</strong>
+          I operate at the intersection of high-end craft, real-time technology, and strategic product thinking. My background spans from traditional graphic design and branding to complex software development and immersive 3D environments.
+        </div>
+      </div>
+
+      <div class="section">
+        <span class="section-title">What I do</span>
+        <div class="section-content">
+          <strong>Digital Product Design, Design Systems, and Custom Software Integration.</strong>
+          I build scalable design foundations, intuitive user interfaces, and custom productivity tools. I am proficient in building real-time worlds (Unreal Engine) and integrating AI into creative workflows.
+          <div class="tags">
+            <span class="tag">UX / UI Strategy</span>
+            <span class="tag">Branding & ID</span>
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">AI Workflows</span>
+            <span class="tag">MacOS Development</span>
+            <span class="tag">VFX & Video</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <span class="section-title">What I want</span>
+        <div class="section-content">
+          <strong>To collaborate on projects that push the boundaries of technology and human interaction.</strong>
+          I am seeking high-impact partnerships, remote-first challenges, and opportunities to architect AI-driven design systems. I value curiosity, speed, and technical excellence over corporate dogma.
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p class="foot-text">© 2026 Shape Seeds</p>
+      <p class="foot-text">Berlin, Germany / Remote</p>
+    </footer>
+  </main>
+
+</body>
+</html>

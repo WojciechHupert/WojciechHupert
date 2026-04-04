@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Strategy & Logic — Shape Seeds</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Product Design Approach: A logic-driven philosophy for complex digital systems. Strategic redesigns, AI auditing, and functional rigor.">
+  <meta name="keywords"
+    content="Product Designer, UX Strategy, SaaS Design, UI Audit, AI Auditor, Shape Seeds, Berlin Designer">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js"></script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* THEME TRANSITIONS */
+    nav, section, div, span, p, h1, h2, h3, a, .highlight-item {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.6rem 4.5rem;
+      background: rgba(28, 20, 73, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav.scrolled {
+      padding: 1.1rem 4.5rem;
+      background: rgba(28, 20, 73, 0.98);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--yellow);
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.02);
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--yellow);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--yellow); }
+
+    /* CORE SECTIONS */
+    section {
+      padding: 8rem 3rem;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--indigo);
+      margin-bottom: 4rem;
+    }
+
+    .hero-title .playful {
+      display: block;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.85em;
+      color: var(--muted);
+      margin-top: 1rem;
+      animation: subtleGlitch 2.5s ease-in-out 1 forwards;
+    }
+
+    @keyframes subtleGlitch {
+      0% { opacity: 0.6; text-shadow: -1px 0 rgba(28,20,73,0.1), 1px 0 rgba(28,20,73,0.05); }
+      30% { opacity: 0.7; text-shadow: -1.5px 0 rgba(28,20,73,0.15), 1px 0 rgba(28,20,73,0.08); }
+      60% { opacity: 0.85; text-shadow: -0.5px 0 rgba(28,20,73,0.12), 1.5px 0 rgba(28,20,73,0.1); }
+      100% { opacity: 1; text-shadow: none; }
+    }
+
+    /* SPLIT LAYOUT */
+    .split-content {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .split-title {
+      font-family: 'Fraunces', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--indigo);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .split-text {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .split-text p {
+      margin-bottom: 2rem;
+    }
+
+    /* DARK THEME SECTIONS */
+    .s-dark {
+      background: var(--indigo);
+      color: var(--white);
+    }
+
+    .s-dark .section-label {
+      color: var(--yellow);
+      opacity: 0.8;
+    }
+
+    .s-dark .split-title {
+      color: var(--white);
+    }
+
+    .s-dark .split-text {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 4rem;
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+    }
+
+    .s-dark .highlight-box {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .highlight-item h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--indigo);
+    }
+
+    .s-dark .highlight-item h4 {
+      color: var(--yellow);
+    }
+
+    .highlight-item p {
+      font-size: 1rem;
+      font-weight: 300;
+      opacity: 0.8;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 4rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .foot-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      color: rgba(255, 214, 0, 0.4);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .split-content { grid-template-columns: 1fr; gap: 3rem; }
+      .highlight-box { grid-template-columns: 1fr; gap: 3rem; }
+      section { padding: 5rem 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+    }
+  </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
+</head>
+
+<body>
+
+  <nav id="mainNav">
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html" class="active">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+  <!-- HERO -->
+  <section style="background: var(--cream-dark); padding-top: 14rem;">
+    <div class="container">
+      <span class="section-label">The 2026 Thesis</span>
+      <h1 class="hero-title">Strategy over <span class="playful">Aesthetics.</span></h1>
+      <div class="split-content">
+        <div></div>
+        <div class="split-text">
+          <p>In an era where high-fidelity visuals are generated instantly, the value of a Product Designer has shifted
+            from production to deconstruction. My role is to ensure that what we build is grounded in structural
+            integrity, not just aesthetic trends.</p>
+          <p>With two decades of experience, I filter every decision through the lens of long-term scalability and user
+            retention. I do not create art; I create functional systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGOR & DISCOVERY -->
+  <section>
+    <div class="container">
+      <div class="split-content">
+        <div class="split-title">Technical <br>Deconstruction.</div>
+        <div class="split-text">
+          <p>Discovery is often treated as a formality. For me, it is a surgical process. I strip products down to their
+            core data models and user intentions to find where logic has been compromised by visual clutter or technical
+            debt.</p>
+          <p>Decisions are never based on intuition. They are based on the documented friction between the user's mental
+            model and the system's architecture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE REDESIGN SPECIALIST -->
+  <section class="s-dark">
+    <div class="container">
+      <span class="section-label">Modern Specialization</span>
+      <div class="split-content">
+        <div class="split-title">The Product <br>Refactor.</div>
+        <div class="split-text">
+          <p>Most SaaS products today do not need more features. They need a structural refactor. I specialize in
+            identifying the UX debt that kills growth: bloated navigation, inconsistent mental models, and logic gaps in
+            complex workflows.</p>
+          <p>I take existing designs and use discovery to fix the structural failures that "v2.0" visuals usually hide.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="highlight-item">
+          <h4>UI Architecture Audit</h4>
+          <p>Mapping the disconnect between technical backends and front-end logic to eliminate user frustration.</p>
+        </div>
+        <div class="highlight-item">
+          <h4>Workflow Simplification</h4>
+          <p>Reducing the cognitive load in task-heavy environments like fintech, health-tech, and enterprise
+            dashboards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW & AUDITOR -->
+  <section>
+    <div class="container">
+      <div class="split-content">
+        <div class="split-title">Strategic Tooling,<br>Human Logic.</div>
+        <div class="split-text">
+          <p>I use AI tools to increase efficiency and speed up the production of low-value assets. This is not a
+            shortcut, but a way to redirect my energy toward high-level strategy and complex edge-case management that
+            automated tools consistently ignore.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="highlight-item">
+          <span class="section-label">USP: The AI Auditor</span>
+          <h4>Fixing Design Hallucinations</h4>
+          <p>Modern UI is increasingly "hallucinated"—visually polished but functionally broken. These interfaces look
+            impressive in a deck but fail under real-world usage because they lack human-centric logic and
+            accessibility.</p>
+          <p style="margin-top: 1rem;">I audit these generated experiences to fix the "uncanny valley" of UI: where
+            buttons are in the wrong place, hierarchies are illogical, and the flow feels wrong to a human user.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNCTION FIRST -->
+  <section class="s-dark" style="text-align: center; background: var(--indigo-mid);">
+    <div class="container" style="max-width: 900px;">
+      <span class="section-label">The Mandate</span>
+      <h2
+        style="font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin-bottom: 2rem;">
+        Utility is Beauty.</h2>
+      <p style="font-size: 1.3rem; font-weight: 300; opacity: 0.8; line-height: 1.6;">I do not design to make things
+        look nice. I design to solve business problems and improve usability. If the product works perfectly, the
+        aesthetics will follow naturally.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Shape Seeds. All rights reserved. <a href="ai-agent.html" style="color: rgba(255,255,255,0.2); text-decoration: none; margin-left: 1.5rem; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.1em; transition: opacity 0.3s;">[ AI Summary ]</a></p>
+    <span class="foot-logo">SS</span>
+  </footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+
+</html>

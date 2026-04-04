@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shape Seeds — Product Designer in Berlin | AI Workflow &amp; UX</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- SEO -->
   <meta name="description" content="Shape Seeds — Product Designer in Berlin with 20+ years of experience. Specialising in AI-driven design workflows, product strategy, 3D, and interactive experiences.">
@@ -31,6 +32,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js"></script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -56,6 +61,12 @@
       background: var(--cream);
       color: var(--charcoal);
       overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* THEME TRANSITIONS */
+    nav, section, div, span, p, h1, h2, h3, a, .tag, .btn-primary, .btn-outline, .project-card, .service-card {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease, transform 0.3s ease;
     }
 
     /* NAV */
@@ -65,18 +76,46 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 3rem;
-      background: var(--indigo);
-      transition: background 0.4s ease;
+      padding: 1.6rem 4.5rem;
+      background: rgba(28, 20, 73, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav.scrolled {
+      padding: 1.1rem 4.5rem;
+      background: rgba(28, 20, 73, 0.98);
     }
 
     .nav-logo {
       font-family: 'Fraunces', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 1.45rem;
+      font-weight: 900;
       color: var(--yellow);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.02);
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
     }
 
     .nav-links {
@@ -461,21 +500,21 @@
       display: block;
     }
 
-    /* AREAS */
-    .areas {
+    /* SERVICES */
+    .services {
       background: var(--cream);
       padding: 7rem 3rem;
       position: relative;
     }
 
-    .areas .section-label { color: var(--teal); }
-    .areas .section-title { color: var(--charcoal); }
+    .services .section-label { color: var(--teal); }
+    .services .section-title { color: var(--charcoal); }
 
     .areas-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
       gap: 2rem;
     }
 
@@ -488,77 +527,106 @@
       text-align: right;
     }
 
-    .areas-grid {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.1rem;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
     }
 
-    .area-card {
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem;
       background: var(--white);
-      padding: 2.25rem 2rem;
-      text-decoration: none;
-      display: block;
-      color: inherit;
-      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 4px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      overflow: hidden;
     }
 
-    .area-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+      border-color: var(--teal);
     }
 
-    .area-card:hover { transform: translateY(-5px); }
-
-    .area-card.c-yellow::after { background: var(--yellow); }
-    .area-card.c-teal::after   { background: var(--teal); }
-    .area-card.c-coral::after  { background: var(--coral); }
-    .area-card.c-violet::after { background: var(--violet); }
-    .area-card.c-lime::after   { background: var(--lime); }
-    .area-card.c-indigo::after { background: var(--indigo); }
-
-    .area-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      margin-bottom: 1.75rem;
-    }
-
-    .area-dot.c-yellow { background: var(--yellow); }
-    .area-dot.c-teal   { background: var(--teal); }
-    .area-dot.c-coral  { background: var(--coral); }
-    .area-dot.c-violet { background: var(--violet); }
-    .area-dot.c-lime   { background: var(--lime); }
-    .area-dot.c-indigo { background: var(--indigo); }
-
-    .area-title {
+    .service-name {
       font-family: 'Fraunces', serif;
-      font-weight: 700;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--indigo);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .service-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .service-description {
+      font-size: 0.88rem;
       color: var(--charcoal);
-      margin-bottom: 0.6rem;
-      line-height: 1.2;
-    }
-
-    .area-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.6;
       font-weight: 300;
+      opacity: 0.8;
     }
 
-    /* AI PROJECTS */
-    .ai-projects {
+    .service-cta {
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .service-cta:hover {
+      opacity: 0.7;
+    }
+
+    .service-cta::after {
+      content: '→';
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .service-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .service-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.3rem 0.6rem;
+      background: var(--cream);
+      border-radius: 2px;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    /* PORTFOLIO */
+    .portfolio {
       background: var(--indigo);
       padding: 7rem 3rem;
       position: relative;
     }
 
-    .ai-projects .section-label { color: var(--yellow); }
-    .ai-projects .section-title { color: var(--white); }
+    .portfolio .section-label { color: var(--yellow); }
+    .portfolio .section-title { color: var(--white); }
 
     .ai-header {
       display: flex;
@@ -577,57 +645,84 @@
       text-align: right;
     }
 
-    .projects-list { display: flex; flex-direction: column; }
-
-    .project-item {
+    .projects-grid {
       display: grid;
-      grid-template-columns: 72px 1fr auto;
-      align-items: center;
-      padding: 2rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
+    }
+
+    .project-card {
       text-decoration: none;
       color: inherit;
-      transition: padding-left 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .project-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
-    .project-item:hover { padding-left: 1rem; }
-
-    .project-number {
-      font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-style: italic;
-      font-size: 2.2rem;
-      color: rgba(255,214,0,0.22);
-      line-height: 1;
+    .project-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--yellow);
     }
 
-    .project-name {
+    .card-image-box {
+      aspect-ratio: 16/10;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .card-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: transform 0.6s ease, opacity 0.3s;
+    }
+
+    .project-card:hover .card-image-box img {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .project-card-title {
       font-family: 'Fraunces', serif;
       font-weight: 700;
-      font-size: 1.45rem;
+      font-size: 1.3rem;
       color: var(--white);
-      margin-bottom: 0.3rem;
-      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
 
-    .project-desc {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.38);
+    .project-card-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
       font-weight: 300;
     }
 
-    .project-badge {
-      padding: 0.3rem 0.8rem;
-      border: 1px solid rgba(255,214,0,0.35);
+    .project-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    .card-badge {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border: 1px solid rgba(255,214,0,0.15);
       border-radius: 100px;
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--yellow);
-      white-space: nowrap;
+      opacity: 0.6;
     }
 
     /* CONTACT */
@@ -754,25 +849,21 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
-      .hero, .about, .areas, .ai-projects, .contact { padding: 5rem 1.5rem; }
+      .hero, .about, .services, .portfolio, .contact { padding: 5rem 1.5rem; }
       .hero { padding-top: 9rem; }
       .scroll-hint { right: 1.5rem; }
       .about { grid-template-columns: 1fr; }
       .about-photo { aspect-ratio: 3/2; height: auto; }
-      .areas-header { flex-direction: column; align-items: flex-start; }
-      .areas-header-right { text-align: left; }
-      .areas-grid { grid-template-columns: 1fr 1fr; }
-      .ai-header { flex-direction: column; align-items: flex-start; }
-      .ai-intro { text-align: left; }
-      .project-item { grid-template-columns: 56px 1fr; }
-      .project-badge { display: none; }
+      .services-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .service-card { padding: 1.5rem; }
+      .service-num { display: none; }
+      .project-grid { grid-template-columns: 1fr; gap: 4rem; }
       .contact { grid-template-columns: 1fr; gap: 3rem; }
       footer { padding: 1.25rem 1.5rem; }
     }
 
     @media (max-width: 600px) {
       .scroll-hint { display: none; }
-      .areas-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -795,19 +886,40 @@
     "sameAs": ["https://www.linkedin.com/in/wojciechhupert/"]
   }
   </script>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Shape Seeds</a>
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#areas">Work</a></li>
-    <li><a href="#ai">AI Projects</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -833,7 +945,7 @@
     <span class="tag" style="--tag-delay:1060ms;--tag-skew:-1.3deg">Podcast Production</span>
   </div>
   <div class="hero-cta">
-    <a href="#areas" class="btn-primary" style="display: none;">See My Work</a>
+    <a href="portfolio.html" class="btn-primary" style="display: none;">See My Work</a>
     <a href="mailto:whupert@gmail.com" class="btn-primary">Get in Touch</a>
   </div>
   <div class="scroll-hint" aria-hidden="true">
@@ -855,7 +967,7 @@
     <p>I'm a product designer with two decades of experience spanning UX, UI, Graphic Design, and Branding. I work at the intersection of craft, technology, and creative exploration — currently based in Berlin.</p>
     <p>Beyond product design, I build real-time environments in Unreal Engine, experiment with AI, design games, produce video, and run a podcast. I believe the best designers never stop making things.</p>
     <div style="margin-top: 2rem;">
-      <a href="Wojciech_Hupert_CV_2026.pdf" target="_blank" class="btn-outline" style="color: var(--yellow); border-color: rgba(255,214,0,0.4); font-size: 0.75rem; padding: 0.7rem 1.5rem;">Download CV (PDF)</a>
+      <a href="about.html" class="btn-outline" style="color: var(--yellow); border-color: rgba(255,214,0,0.4); font-size: 0.75rem; padding: 0.7rem 1.5rem;">About me</a>
     </div>
     <div class="about-stats">
       <div>
@@ -877,130 +989,142 @@
   </div>
 </section>
 
-<!-- AREAS -->
-<section class="areas" id="areas">
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="areas-header">
     <div>
-      <p class="section-label">Areas of Work</p>
-      <h2 class="section-title">Different worlds,<br><span class="playful">one mindset.</span></h2>
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">Design <span class="playful">Services.</span></h2>
     </div>
-    <p class="areas-header-right">Each discipline feeds the others.<br>The work is always connected.</p>
+    <p class="areas-header-right">Comprehensive solutions for digital products. Built with craft and intelligence.</p>
   </div>
 
-  <div class="areas-grid">
-
-    <div class="area-card c-yellow">
-      <div class="area-dot c-yellow"></div>
-      <h3 class="area-title">Product Design</h3>
-      <p class="area-desc">UX, UI, and product strategy across digital platforms. 20 years of shipping things people use.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3 class="service-name">Product Design</h3>
+      <div class="service-details">
+        <p class="service-description">End-to-end product design covering user needs and business goals. I translate complex requirements into intuitive, elegant digital solutions.</p>
+        <div class="service-keywords">
+          <span class="service-tag">UX Strategy</span>
+          <span class="service-tag">UI Design</span>
+          <span class="service-tag">Prototyping</span>
+          <span class="service-tag">User Flows</span>
+        </div>
+        <a href="mailto:whupert@gmail.com" class="service-cta">Get in Touch</a>
+      </div>
     </div>
 
-    <div class="area-card c-teal">
-      <div class="area-dot c-teal"></div>
-      <h3 class="area-title">3D & Unreal Engine</h3>
-      <p class="area-desc">Real-time environments, renders, and spatial experiences built in Unreal Engine.</p>
+    <div class="service-card">
+      <h3 class="service-name">Design Systems & Branding</h3>
+      <div class="service-details">
+        <p class="service-description">Building scalable design foundations and cohesive visual identifies. Creating languages that ensure consistency across every touchpoint.</p>
+        <div class="service-keywords">
+          <span class="service-tag">Visual Identity</span>
+          <span class="service-tag">Style Guides</span>
+          <span class="service-tag">Component Libraries</span>
+          <span class="service-tag">Brand Strategy</span>
+        </div>
+        <a href="mailto:whupert@gmail.com" class="service-cta">Get in Touch</a>
+      </div>
     </div>
 
-    <div class="area-card c-coral">
-      <div class="area-dot c-coral"></div>
-      <h3 class="area-title">Game Design</h3>
-      <p class="area-desc">Mechanics, worlds, and interactive narratives. Games as the ultimate UX challenge.</p>
+    <div class="service-card">
+      <h3 class="service-name">Custom Software Development</h3>
+      <div class="service-details">
+        <p class="service-description">Bespoke technical solutions tailored to your unique requirements. Specialising in automation, AI integration, and high-performance applications.</p>
+        <div class="service-keywords">
+          <span class="service-tag">MacOS Apps</span>
+          <span class="service-tag">AI Integration</span>
+          <span class="service-tag">Automation</span>
+          <span class="service-tag">Productivity Tools</span>
+        </div>
+        <a href="mailto:whupert@gmail.com" class="service-cta">Get in Touch</a>
+      </div>
     </div>
 
-    <div class="area-card c-violet">
-      <div class="area-dot c-violet"></div>
-      <h3 class="area-title">VFX & Visual Design</h3>
-      <p class="area-desc">Motion, effects, and visual storytelling. Where craft meets technology at its most expressive.</p>
+    <div class="service-card">
+      <h3 class="service-name">Mentoring</h3>
+      <div class="service-details">
+        <p class="service-description">Sharing two decades of design expertise to help the next generation. One-on-one sessions focused on craft, leadership, and career growth.</p>
+        <div class="service-keywords">
+          <span class="service-tag">Portfolio Reviews</span>
+          <span class="service-tag">Design Leadership</span>
+          <span class="service-tag">Craft Mastery</span>
+        </div>
+        <a href="mailto:whupert@gmail.com" class="service-cta">Get in Touch</a>
+      </div>
     </div>
 
-    <div class="area-card c-lime">
-      <div class="area-dot c-lime"></div>
-      <h3 class="area-title">Podcast Production<br>& Management</h3>
-      <p class="area-desc">End-to-end podcast production and management. Audio storytelling and distribution.</p>
+    <div class="service-card">
+      <h3 class="service-name">Consulting</h3>
+      <div class="service-details">
+        <p class="service-description">Strategic guidance for teams and startups. Auditing existing workflows and products to identify opportunities for growth and efficiency.</p>
+        <div class="service-keywords">
+          <span class="service-tag">UX Audits</span>
+          <span class="service-tag">Workflow Optimization</span>
+          <span class="service-tag">Strategic Roadmaps</span>
+        </div>
+        <a href="mailto:whupert@gmail.com" class="service-cta">Get in Touch</a>
+      </div>
     </div>
+  </div>
 
-    <div class="area-card c-indigo">
-      <div class="area-dot c-indigo"></div>
-      <h3 class="area-title">Video Production</h3>
-      <p class="area-desc">From concept to final cut. Visual production for personal and professional projects.</p>
-    </div>
-
+  <div style="margin-top: 4rem; text-align: center;">
+    <a href="services.html" class="btn-outline">Explore All Services</a>
   </div>
 </section>
 
-<!-- AI PROJECTS -->
-<section class="ai-projects" id="ai">
+<!-- FEATURED WORK -->
+<section class="portfolio" id="portfolio">
   <div class="ai-header">
     <div>
-      <p class="section-label">Recent Projects</p>
-      <h2 class="section-title">Building with<br><span class="playful">intelligence.</span></h2>
+      <p class="section-label">Featured Work</p>
+      <h2 class="section-title">Latest <span class="playful">Projects.</span></h2>
     </div>
-    <p class="ai-intro">Experiments at the frontier of AI, design, and creative technology. Each project explores what becomes possible when you combine craft with machine intelligence.</p>
+    <p class="ai-intro">A selection of recent work at the intersection of design, AI, and creative technology.</p>
   </div>
 
-  <div class="projects-list">
+  <div class="projects-grid">
 
-    <a href="project-lelit.html" class="project-item">
-      <div class="project-number">01</div>
+    <a href="project-inna.html" class="project-card">
+      <div class="card-image-box"><img src="case-inna.png" alt="Inna Shchepanska"></div>
       <div>
-        <div class="project-name">Lelit Distrikt Experience</div>
-        <div class="project-desc">Interactive metaverse-style environment with intelligent NPCs. Platform for storytelling, education and entertainment</div>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
-        <span class="project-badge">3D modeling</span>
-        <span class="project-badge">Unreal Engine</span>
-        <span class="project-badge">AI</span>
-        <span class="project-badge">Metaverse</span>
-        <span class="project-badge">Virtual Reality</span>
+        <h3 class="project-card-title">Inna Shchepanska</h3>
+        <p class="project-card-desc">Personal brand website for a multi-disciplinary artist and AI researcher.</p>
+        <div class="project-card-tags">
+          <span class="card-badge">Web Design</span>
+          <span class="card-badge">Branding</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-auggy.html" class="project-item">
-      <div class="project-number">02</div>
+    <a href="#" class="project-card">
+      <div class="card-image-box"><img src="dashboard.png" alt="Krzysztof Ćwichoń"></div>
       <div>
-        <div class="project-name">Auggy Chat</div>
-        <div class="project-desc">Component of the Lelit project, where user can interact with NPCs in a 2D interface as well as on the smartphone devices. Features private text and voice chat and extensive reasoning. Self-hosted with many integrations</div>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
-        <span class="project-badge">Mobile App</span>
-        <span class="project-badge">Pixel Art</span>
-        <span class="project-badge">AI chat</span>
-        <span class="project-badge">Metaverse</span>
+        <h3 class="project-card-title">Krzysztof Ćwichoń</h3>
+        <p class="project-card-desc">Portfolio for award-winning high-end Art Direction and Design.</p>
+        <div class="project-card-tags">
+          <span class="card-badge">Web Design</span>
+          <span class="card-badge">Art Direction</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-podcast.html" class="project-item">
-      <div class="project-number">03</div>
+    <a href="project-spark.html" class="project-card">
+      <div class="card-image-box"><img src="case-spark.png" alt="Spark & Heal"></div>
       <div>
-        <div class="project-name">Podcast Studio Production App</div>
-        <div class="project-desc">App that uses Captivate's API and provides a suite of features needed for a streamlined podcast production at scale. It uses a myriad of AI features to generate assets locally and remotely</div>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
-        <span class="project-badge">MacOS App</span>
-        <span class="project-badge">Podcasting</span>
-        <span class="project-badge">AI</span>
-        <span class="project-badge">UX Design</span>
-        <span class="project-badge">Productivity</span>
-        <span class="project-badge">Product Design</span>
+        <h3 class="project-card-title">Spark & Heal</h3>
+        <p class="project-card-desc">Advanced wellness platform integrating code, design and health.</p>
+        <div class="project-card-tags">
+          <span class="card-badge">Platform</span>
+          <span class="card-badge">UX Design</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-audio-meta.html" class="project-item">
-      <div class="project-number">04</div>
-      <div>
-        <div class="project-name">Audio Meta</div>
-        <div class="project-desc">Sophisticated audio media management system used to organise and consume audio files. Useful for archivists, journalists, audio note enthusiasts. Powered by AI transcription and cataloguing</div>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; max-width: 320px;">
-        <span class="project-badge">MacOS App</span>
-        <span class="project-badge">Windows App</span>
-        <span class="project-badge">UX Design</span>
-        <span class="project-badge">Product Design</span>
-        <span class="project-badge">Database</span>
-        <span class="project-badge">AI</span>
-      </div>
-    </a>
-
+  </div>
+  <div style="margin-top: 4rem; text-align: center;">
+    <a href="portfolio.html" class="btn-outline">View Full Portfolio</a>
   </div>
 </section>
 
@@ -1036,7 +1160,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Shape Seeds. All rights reserved.</p>
+  <p>© 2026 Shape Seeds. All rights reserved. <a href="ai-agent.html" style="color: rgba(255,255,255,0.2); text-decoration: none; margin-left: 1.5rem; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.1em; transition: opacity 0.3s;">[ AI Summary ]</a></p>
   <span class="foot-logo">SS</span>
 </footer>
 

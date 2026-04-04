@@ -55,7 +55,7 @@
       font-family: 'Outfit', system-ui, sans-serif;
       background: var(--cream);
       color: var(--charcoal);
-      overflow-x: hidden;
+      overflow-x: hidden; transition: background-color 0.4s ease, color 0.4s ease;
       line-height: 1.6;
     }
 
@@ -72,10 +72,25 @@
 
     .nav-logo {
       font-family: 'Fraunces', serif;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--yellow);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
     }
 
     .nav-links {
@@ -377,15 +392,24 @@
     .beta-btn:hover { background: var(--cream); border-color: var(--cream); transform: translateY(-2px); }
     @media (max-width: 600px) { .beta-access { padding: 4rem 1.5rem; } }
   </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Shape Seeds</a>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#areas">Work</a></li>
-    <li><a href="index.html#ai">AI Projects</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li><li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </nav>

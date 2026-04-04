@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentorship — Shape Seeds</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+
+  <!-- SEO -->
+  <meta name="description" content="Mentorship: Sharing twenty years of design experience to help the next generation of designers grow. Guidance, craft, and career strategy.">
+  <meta name="keywords" content="Design Mentorship, UX Mentoring, Career Guidance, Design Leadership, Shape Seeds">
+  <meta name="author" content="Shape Seeds">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wojciechhupert.github.io/mentorship.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #FFD600;
+      --indigo:      #1C1449;
+      --indigo-mid:  #2D2260;
+      --coral:       #FF5638;
+      --teal:        #00C49A;
+      --violet:      #7C3AED;
+      --lime:        #84CC16;
+      --cream:       #F8F4EC;
+      --cream-dark:  #EEE9DE;
+      --white:       #FFFFFF;
+      --charcoal:    #1A1A1A;
+      --muted:       #888070;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: var(--indigo);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-logo-icon { display: block; }
+      .nav-logo-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex; gap: 2.25rem; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    /* HEADER */
+    .project-header {
+      padding: 12rem 3rem 6rem;
+      background: var(--teal);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      color: var(--yellow);
+    }
+
+    .project-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .project-subtitle {
+      display: block;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 300;
+      margin-top: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.02em;
+    }
+
+    .project-intro {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      max-width: 800px;
+      line-height: 1.5;
+    }
+
+    /* CONTENT */
+    .project-content {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 8rem;
+      align-items: start;
+    }
+
+    .content-text h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--indigo);
+    }
+
+    .content-text p {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--indigo);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-logo { font-family: 'Fraunces', serif; font-weight: 700; color: rgba(255,214,0,0.4); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-header, .project-content { padding: 5rem 1.5rem; }
+      .project-header { padding-top: 10rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+
+  <!-- Theme Support -->
+  <link rel="stylesheet" href="themes.css">
+  <script>(function(){const t=localStorage.getItem('site-theme')||'original';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script src="theme-switcher.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+    <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
+    <span class="nav-logo-text">Shape Seeds</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <div class="section-label">Giving Back</div>
+  <h1 class="project-title">Design <span class="project-subtitle">Mentorship</span></h1>
+  <p class="project-intro">Sharing two decades of design experience to help individual designers and teams navigate their craft, careers, and the future of technology.</p>
+</header>
+
+<main class="project-content">
+  <div class="content-grid">
+    <div class="content-text">
+      <h2>Craft and Growth</h2>
+      <p>My mentorship focus is on the long-term growth of the designer. I provide guidance on mastering design craft, developing a strategic mindset, and navigating complex product environments.</p>
+      <p>I believe in a hands-on approach, working through real-world challenges to build confidence and skill.</p>
+    </div>
+    <div class="content-text">
+      <h2>Career Strategy</h2>
+      <p>The design landscape is constantly shifting. I help designers build resilient careers by identifying their unique strengths, refining their portfolios, and preparing for the impact of emerging technologies like AI.</p>
+      <p>It's about more than just finding the next job; it's about building a sustainable and fulfilling creative life.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Shape Seeds. All rights reserved.</p>
+  <span class="foot-logo">SS</span>
+</footer>
+
+</body>
+</html>
