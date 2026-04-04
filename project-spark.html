@@ -54,15 +54,21 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.1rem 3rem;
-      background: var(--indigo);
+      background: rgba(28, 20, 73, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav-logo {
       font-family: 'Fraunces', serif;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--yellow);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .nav-logo-icon {
@@ -91,7 +97,7 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a:hover, .nav-links a.active { color: var(--yellow); }
 
     /* HEADER */
     .project-header {
@@ -315,8 +321,9 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="index.html#areas">Work</a></li>
-    <li><a href="index.html#ai">AI Projects</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </nav>

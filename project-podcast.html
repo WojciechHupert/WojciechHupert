@@ -72,45 +72,28 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 200;
-      padding: 1.6rem 4.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
       background: rgba(28, 20, 73, 0.9);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    nav.scrolled {
-      padding: 1.1rem 4.5rem;
-      background: rgba(28, 20, 73, 0.98);
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: var(--max-width);
-      margin: 0 auto;
     }
 
     .nav-logo {
       font-family: 'Fraunces', serif;
-      font-size: 1.45rem;
-      font-weight: 900;
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--yellow);
-      letter-spacing: -0.03em;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      transition: transform 0.3s ease;
+      gap: 0.75rem;
     }
 
-    .nav-logo:hover {
-      transform: scale(1.02);
-    }
-
-        .nav-logo-icon {
+    .nav-logo-icon {
       width: 28px;
       height: 28px;
       object-fit: contain;
@@ -136,7 +119,7 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a:hover, .nav-links a.active { color: var(--yellow); }
 
     /* HEADER */
     .project-header {
@@ -524,20 +507,19 @@
 </head>
 <body>
 
-<nav id="mainNav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Shape Seeds Home">
     <img src="favicon.svg" alt="SS Logo" class="nav-logo-icon">
     <span class="nav-logo-text">Shape Seeds</span>
   </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="index.html#areas">Work</a></li>
-      <li><a href="index.html#ai">AI Projects</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="designapproach.html">Approach</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <header class="project-header">
@@ -820,15 +802,6 @@
 
     window.addEventListener('mouseup', () => { isDragging = false; });
 
-    // Nav Scroll Effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('mainNav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
   });
 </script>
 
